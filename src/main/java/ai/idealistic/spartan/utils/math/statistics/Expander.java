@@ -268,15 +268,15 @@ public final class Expander {
     }
 
     public static List<Long> convertToLongList(List<Integer> integerList) {
-        ArrayList<Long> (long)List = new ArrayList<Long>();
+        ArrayList<Long> longList = new ArrayList<Long>();
         for (Integer i : integerList) {
             if (i != null) {
-                (long)List.add(i.longValue());
+                longList.add(i.longValue());
                 continue;
             }
-            (long)List.add(null);
+            longList.add(null);
         }
-        return (long)List;
+        return longList;
     }
 
     public static int getDistinct(Collection<? extends Number> data) {
