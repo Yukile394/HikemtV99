@@ -1,0 +1,92 @@
+/*
+ * Decompiled with CFR 0.152.
+ *
+ * Could not load the following classes:
+ *  lombok.Generated
+ */
+package kireiko.dev.millennium.types;
+
+import lombok.Generated;
+
+public final class Vec2 {
+    private double x;
+    private double y;
+
+    public Vec2(double x, double y) {
+    }
+
+    public Vec2(Number x, Number y) {
+        this.x = x.(double)Value();
+        this.y = y.(double)Value();
+    }
+
+    public double distance(Vec2 vector2) {
+        return Math.sqrt(Math.pow(this.x - vector2.x, 2.0) + Math.pow(this.y - vector2.y, 2.0));
+    }
+
+    public Vec2 add(Vec2 vector2) {
+        return new Vec2(this.x + vector2.x, this.y + vector2.y);
+    }
+
+    public Vec2 subtract(Vec2 vector2) {
+        return new Vec2(this.x - vector2.x, this.y - vector2.y);
+    }
+
+    public Vec2 scale(double factor) {
+        return new Vec2(this.x * factor, this.y * factor);
+    }
+
+    public boolean compare(Vec2 vector2) {
+        return this.x == vector2.x && this.y == vector2.y;
+    }
+
+    @Generated
+    public double getX() {
+        return this.x;
+    }
+
+    @Generated
+    public double getY() {
+        return this.y;
+    }
+
+    @Generated
+    public void setX(double x) {
+    }
+
+    @Generated
+    public void setY(double y) {
+    }
+
+    @Generated
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+        if (!(o instanceof Vec2)) {
+            return false;
+        }
+        Vec2 other = (Vec2)o;
+        if (Double.compare(this.getX(), other.getX()) != 0) {
+            return false;
+        }
+        return Double.compare(this.getY(), other.getY()) == 0;
+    }
+
+    @Generated
+    public int hashCode() {
+        int PRIME = 59;
+        int result = 1;
+        long $x = Double.(double)ToLongBits(this.getX());
+        result = result * 59 + (int)($x >>> 32 ^ $x);
+        long $y = Double.(double)ToLongBits(this.getY());
+        result = result * 59 + (int)($y >>> 32 ^ $y);
+        return result;
+    }
+
+    @Generated
+    public String toString() {
+        return "Vec2(x=" + this.getX() + ", y=" + this.getY() + ")";
+    }
+}
+

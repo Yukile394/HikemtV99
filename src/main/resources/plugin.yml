@@ -1,0 +1,27 @@
+name: Spartan
+main: ai.idealistic.spartan.Register
+version: ${version}
+api-version: '1.21'
+folia-supported: true
+authors: ["Evangelos Dedes @Vagdedes"]
+description: Spartan AntiCheat (Paper 1.21+)
+load: STARTUP
+softdepend:
+  - ProtocolLib
+  - ViaVersion
+  - floodgate
+  - ProtocolSupport
+  - ItemsAdder
+  - CrackShot
+  - CrackShotPlus
+  - ProjectKorra
+  - MagicSpells
+  - MythicMobs
+  - VeinMiner
+  - WildTools
+  - EcoEnchants
+  - CustomEnchantsPlus
+commands:
+  spartan:
+    description: Spartan ana komutu
+    aliases: [sp, spartanac]

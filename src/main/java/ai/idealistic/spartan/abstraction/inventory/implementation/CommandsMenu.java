@@ -1,0 +1,83 @@
+/*
+ * Decompiled with CFR 0.152.
+ *
+ * Could not load the following classes:
+ *  org.bukkit.Material
+ *  org.bukkit.command.CommandSender
+ *  org.bukkit.inventory.ItemStack
+ */
+package ai.idealistic.spartan.abstraction.inventory.implementation;
+
+import ai.idealistic.spartan.abstraction.check.Check;
+import ai.idealistic.spartan.abstraction.check.CheckEnums;
+import ai.idealistic.spartan.abstraction.inventory.InventoryMenu;
+import ai.idealistic.spartan.abstraction.protocol.PlayerProtocol;
+import ai.idealistic.spartan.api.Permission;
+import ai.idealistic.spartan.functionality.connection.PluginAddons;
+import ai.idealistic.spartan.functionality.moderation.clickable.ClickableMessage;
+import ai.idealistic.spartan.functionality.server.Config;
+import ai.idealistic.spartan.functionality.server.PluginBase;
+import java.util.ArrayList;
+import org.bukkit.Material;
+import org.bukkit.command.CommandSender;
+import org.bukkit.inventory.ItemStack;
+
+public class CommandsMenu
+extends InventoryMenu {
+    public static final String title = "Check Commands";
+
+    public CommandsMenu() {
+        super(title, 54, new Permission[]{Permission.MANAGE, Permission.INFO});
+    }
+
+    @Override
+    public boolean internalOpen(PlayerProtocol protocol, boolean permissionMessage, Object object) {
+        if (!PluginAddons.isSyn()) {
+            protocol.bukkit().closeInventory();
+            String missing = "\u00a7aClick to visit https://spartan.top/syn.".replace("{feature}", title);
+            ClickableMessage.sendURL(CommandSenderprotocol.bukkit(), missing, missing + " (https://spartan.top/syn)", "https://spartan.top/syn");
+            return false;
+        }
+        ArrayList<String> list = new ArrayList<String>();
+        int startingLine = 1;
+        for (CheckEnums.HackCategoryType categoryType : CheckEnums.HackCategoryType.values()) {
+            int slot = startingLine * 11;
+            for (CheckEnums.HackType hackType : CheckEnums.HackType.values()) {
+                if (hackType.category != categoryType) continue;
+                list.clear();
+                list.add("\u00a76" + hackType.category.toString());
+                list.add("");
+                int counter = 0;
+                for (String s : hackType.getCheck().checkCheckCancellation()) {
+                    if (s == null) continue;
+                    String base = "\u00a77" + ++counter + "\u00a78:\u00a7f ";
+                    if (s.length() > 40) {
+                        list.add(base + s.substring(0, 40));
+                        continue;
+                    }
+                    list.add(base + s);
+                }
+                this.add("\u00a73" + hackType.getCheck().getName(), list, new ItemStack(hackType.material), slot);
+                ++slot;
+            }
+            ++startingLine;
+        }
+        this.add("\u00a74Back", null, new ItemStack(Material.ARROW), 49);
+        return true;
+    }
+
+    @Override
+    public boolean internalHandle(PlayerProtocol protocol) {
+        String item = this.itemStack.getItemMeta().getDisplayName();
+        if (item.equals("\u00a74Back")) {
+            PluginBase.synMenu.open(protocol, protocol.bukkit().getName());
+        } else {
+            Check check = Config.getCheckByName(item = item.startsWith("\u00a7") ? item.substring(2) : item);
+            if (check != null) {
+                PluginBase.subCommandsMenu.open(protocol, check);
+            }
+        }
+        return true;
+    }
+}
+
