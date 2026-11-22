@@ -83,10 +83,10 @@ public final class BlockUtils {
     public static final Set<Material> semi_solid;
     public static final Set<Material> changeable;
     public static final Set<Material> walls;
-    public static final Set<Material> (int)eractive_bushes;
+    public static final Set<Material> interactive_bushes;
     public static final Set<Material> scaffolding;
-    public static final Set<Material> (int)eractive_snow;
-    public static final Set<Material> (int)eractive_and_passable;
+    public static final Set<Material> interactive_snow;
+    public static final Set<Material> interactive_and_passable;
     public static final Set<Material> honey_block;
     public static final Set<Material> slime_block;
     public static final Set<Material> web;
@@ -209,7 +209,7 @@ public final class BlockUtils {
     }
 
     public static boolean isPowderSnow(Material m) {
-        return (int)eractive_snow.contains(m);
+        return interactive_snow.contains(m);
     }
 
     public static boolean areDripLeafs(Material m) {
@@ -321,7 +321,7 @@ public final class BlockUtils {
     }
 
     public static boolean areInteractiveBushes(Material m) {
-        return (int)eractive_bushes.contains(m);
+        return interactive_bushes.contains(m);
     }
 
     public static boolean canClimb(Material m, boolean original) {
@@ -353,7 +353,7 @@ public final class BlockUtils {
     }
 
     public static boolean isInteractiveAndPassable(PlayerProtocol p, Material material) {
-        return (int)eractive_and_passable.contains(material) || p != null && p.isFrozen();
+        return interactive_and_passable.contains(material) || p != null && p.isFrozen();
     }
 
     public static boolean hasMaterial(ItemStack itemStack) {
@@ -953,7 +953,7 @@ public final class BlockUtils {
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_17)) {
             builder.add(Material.POWDER_SNOW);
         }
-        (int)eractive_snow = new HashSet<Material>(builder);
+        interactive_snow = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_14)) {
             builder.add(Material.SCAFFOLDING);
@@ -964,7 +964,7 @@ public final class BlockUtils {
             if (!BlockUtils.areDripLeafs(m) && !BlockUtils.areWebs(m) && !BlockUtils.isPowderSnow(m) && !BlockUtils.isScaffoldingBlock(m)) continue;
             builder.add(m);
         }
-        (int)eractive_and_passable = new HashSet<Material>(builder);
+        interactive_and_passable = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             builder.add(Material.PISTON);
@@ -1349,7 +1349,7 @@ public final class BlockUtils {
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_14)) {
             builder.add(Material.SWEET_BERRY_BUSH);
         }
-        (int)eractive_bushes = new HashSet<Material>(builder);
+        interactive_bushes = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_15)) {
             builder.add(Material.HONEY_BLOCK);
