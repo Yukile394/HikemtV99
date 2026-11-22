@@ -39,7 +39,9 @@ jobs:
           chmod +x gradlew
 
       - name: Derle
+        shell: bash
         run: |
+          set -o pipefail
           EXTRA=""
           if [ -n "${{ github.event.inputs.paper_version }}" ]; then EXTRA="-PpaperVersion=${{ github.event.inputs.paper_version }}"; fi
           ./gradlew build --no-daemon --stacktrace $EXTRA 2>&1 | tee build.log
@@ -50,6 +52,17 @@ jobs:
         with:
           name: Spartan-jar
           path: build/libs/Spartan.jar
+          if-no-files-found: error
+
+      - name: Hata ozeti
+        if: failure()
+        run: |
+          {
+            echo '### Derleme hatalari'
+            echo '```'
+            grep -E 'error:|FAILED|Could not resolve|What went wrong' -A2 build.log | head -150
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Derleme logu yukle
         if: always()
