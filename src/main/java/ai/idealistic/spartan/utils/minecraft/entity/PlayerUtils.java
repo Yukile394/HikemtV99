@@ -91,7 +91,7 @@ public class PlayerUtils {
     }
 
     public static double getJumpMotionSum(int jump) {
-        return jumpsValues.get((byte)jump).stream().mapToDouble(Double::(double)Value).sum();
+        return jumpsValues.get((byte)jump).stream().mapToDouble(Double::doubleValue).sum();
     }
 
     public static double getJumpMotion(int jump, int tick) {
