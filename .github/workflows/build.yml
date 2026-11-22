@@ -44,7 +44,7 @@ jobs:
           set -o pipefail
           EXTRA=""
           if [ -n "${{ github.event.inputs.paper_version }}" ]; then EXTRA="-PpaperVersion=${{ github.event.inputs.paper_version }}"; fi
-          ./gradlew build --no-daemon --stacktrace $EXTRA 2>&1 | tee build.log
+          ./gradlew build --no-daemon $EXTRA 2>&1 | tee build.log
 
       - name: Jar yukle
         if: success()
