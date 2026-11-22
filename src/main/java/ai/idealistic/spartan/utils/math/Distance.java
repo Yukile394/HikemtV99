@@ -337,7 +337,7 @@ public final class Distance {
         return value < 1.0E-4;
     }
 
-    public static double (float)Double(double d) {
+    public static double floatDouble(double d) {
         return (float)d;
     }
 
