@@ -53,7 +53,7 @@ extends CheckRunner {
     private final CheckDetection eo = new ImplementedDetection(this, null, null, "breaks_per_second", null);
     private final CheckDetection ep = new ImplementedDetection(this, null, null, "indirect_surroundings_per_second", null);
     private Block eq = null;
-    private final Map<Integer, Long> er = new ConcurrentHashMap<Integer, Long>2;
+    private final Map<Integer, Long> er = new ConcurrentHashMap<Integer, Long>(2);
     private final Buffer.Storage es = new Buffer.Storage();
     private final Buffer.Storage et = new Buffer.Storage();
 
@@ -68,7 +68,7 @@ extends CheckRunner {
             long limit;
             long time;
             GameMode gameMode;
-            if (!(BlockUtils.isSensitive(block.getType()) || (gameMode = this.protocol.getGameMode()) != GameMode.SURVIVAL && gameMode != GameMode.ADVENTURE || (time = this.er.getOrDefault(Objects.hash(block.getWorld().getName(), block.getType(), block.getX(), block.getY(), block.getZ()), 0L).(long)Value()) <= 0L || (time = System.currentTimeMillis() - time) <= 0L || (limit = (originalLimit = Spade.getBlockBreakTime(this.protocol, itemStack = this.protocol.getItemInHand(), block.getType()))) <= -1L)) {
+            if (!(BlockUtils.isSensitive(block.getType()) || (gameMode = this.protocol.getGameMode()) != GameMode.SURVIVAL && gameMode != GameMode.ADVENTURE || (time = this.er.getOrDefault(Objects.hash(block.getWorld().getName(), block.getType(), block.getX(), block.getY(), block.getZ()), 0L).longValue()) <= 0L || (time = System.currentTimeMillis() - time) <= 0L || (limit = (originalLimit = Spade.getBlockBreakTime(this.protocol, itemStack = this.protocol.getItemInHand(), block.getType()))) <= -1L)) {
                 limit /= 2L;
                 if (block.getY() <= this.protocol.getLocation().getBlockY() && (double)Math.abs(block.getX() - this.protocol.getLocation().getBlockX()) <= 1.5 && (double)Math.abs(block.getZ() - this.protocol.getLocation().getBlockZ()) <= 1.5) {
                     limit /= 2L;

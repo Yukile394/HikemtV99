@@ -27,7 +27,7 @@ public class CrossServerNotifications {
             try {
                 if (rs == null) break block7;
 while (rs.next()) {
-                    long long =  rs.getLong("id");
+                    long id = rs.getLong("id");
                     if (processed.containsKey(id)) continue;
                     String functionality = rs.getString("functionality");
                     String playerName = rs.getString("player_name");

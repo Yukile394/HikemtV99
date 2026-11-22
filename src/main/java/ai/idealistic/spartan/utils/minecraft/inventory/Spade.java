@@ -29,8 +29,8 @@ import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.util.NumberConversions;
 
 public class Spade {
-    private static final Map<String, Material> alternative = new LinkedHashMap<String, Material>2;
-    private static final Map<Material, Double> baseMultiplier = new LinkedHashMap<Material, Double>2;
+    private static final Map<String, Material> alternative = new LinkedHashMap<String, Material>(2);
+    private static final Map<Material, Double> baseMultiplier = new LinkedHashMap<Material, Double>(2);
     private static final double specialMultiplier = 1.5;
 
     public static Material get(String s) {
@@ -85,7 +85,7 @@ public class Spade {
                     aquaInfinity = true;
                 } else {
                     PlayerInventory inventory = protocol.getInventory();
-                    ArrayList<ItemStack> items = new ArrayList<ItemStack>5;
+                    ArrayList<ItemStack> items = new ArrayList<ItemStack>(5);
                     items.addAll(Arrays.asList(inventory.getArmorContents()));
                     items.add(inventory.getItemInHand());
                     for (ItemStack item : items) {

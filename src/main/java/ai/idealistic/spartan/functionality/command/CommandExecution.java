@@ -244,7 +244,7 @@ implements CommandExecutor {
                 return true;
             }
             StringBuilder argumentsToStringBuilder = new StringBuilder();
-            for (i < args.length; ++i) {
+            for (int i = 0; i < args.length; ++i) {
                 argumentsToStringBuilder.append(args[i]).append(" ");
             }
             String argumentsToString = argumentsToStringBuilder.substring(0, argumentsToStringBuilder.length() - 1);
@@ -416,7 +416,7 @@ implements CommandExecutor {
             return false;
         } else {
             StringBuilder argumentsToStringBuilder = new StringBuilder();
-            for (i < args.length; ++i) {
+            for (int i = 0; i < args.length; ++i) {
                 argumentsToStringBuilder.append(args[i]).append(" ");
             }
             String argumentsToString = argumentsToStringBuilder.substring(0, argumentsToStringBuilder.length() - 1);
@@ -472,7 +472,7 @@ implements CommandExecutor {
                         ClickableMessage.sendURL(sender, Config.messages.getColorfulString("player_not_found_message"), support, "https://www.spartan.top/discord");
                         return true;
                     }
-                    ArrayList<CheckEnums.HackType> found = new ArrayList<CheckEnums.HackType>maxHackTypes;
+                    ArrayList<CheckEnums.HackType> found = new ArrayList<CheckEnums.HackType>(maxHackTypes);
 for (String check : checks) {
                         for (CheckEnums.HackType hackType : hackTypes) {
                             if (!hackType.getCheck().getName().equalsIgnoreCase(check)) continue;
@@ -518,7 +518,7 @@ for (String check : checks) {
                         return true;
                     }
                     argumentsToStringBuilder = new StringBuilder();
-                    for (i < args.length; ++i) {
+                    for (int i = 0; i < args.length; ++i) {
                         argumentsToStringBuilder.append(args[i]).append(" ");
                     }
                     argumentsToString = argumentsToStringBuilder.substring(0, argumentsToStringBuilder.length() - 1);
@@ -549,7 +549,7 @@ for (String check : checks) {
                 }
                 return false;
             } else if (args.length >= 4) {
-                void var9_33;
+                int var9_33 = 0;
                 argumentsToStringBuilder = new StringBuilder();
                 while (var9_33 < args.length) {
                     argumentsToStringBuilder.append(args[var9_33]).append(" ");
@@ -570,7 +570,7 @@ for (String check : checks) {
                     String condition = ConfigUtils.replaceWithSyntax(playerProtocol4, args[2], null);
                     String result = ConfigUtils.replaceWithSyntax(playerProtocol4, args[4], null);
                     argumentsToStringBuilder = new StringBuilder();
-                    for (i < args.length; ++i) {
+                    for (int i = 0; i < args.length; ++i) {
                         argumentsToStringBuilder.append(args[i]).append(" ");
                     }
                     String command = ConfigUtils.replaceWithSyntax(playerProtocol4, argumentsToStringBuilder.substring(0, argumentsToStringBuilder.length() - 1), null);

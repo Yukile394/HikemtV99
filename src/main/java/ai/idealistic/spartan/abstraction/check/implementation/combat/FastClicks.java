@@ -54,7 +54,7 @@ extends CheckRunner {
 
     public FastClicks(CheckEnums.HackType hackType, PlayerProtocol protocol) {
         super(hackType, protocol);
-        for (i < 7; ++i) {
+        for (int i = 0; i < 7; ++i) {
             this.H.add(0);
         }
         this.O = new ConcurrentList<Long>();

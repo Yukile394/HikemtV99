@@ -52,7 +52,7 @@ public class PluginAddons {
         }
         String[] editions = CloudConnections.getOwnedEditions();
         if (editions == null) {
-            void var3_12;
+            int var3_12 = 0;
             freeEdition = true;
             Check.DataType[] dataTypeArray = Check.DataType.values();
             n = dataTypeArray.length;
@@ -62,8 +62,8 @@ public class PluginAddons {
                 ++var3_12;
             }
         } else {
-            void var3_16;
-            void var3_14;
+            int var3_16 = 0;
+            int var3_14 = 0;
             Check.DataType[] dataTypeArray = Check.DataType.values();
             n = dataTypeArray.length;
             while (var3_14 < n) {
@@ -83,7 +83,7 @@ public class PluginAddons {
                 ++var3_16;
             }
             if (freeEdition) {
-                void var3_18;
+                int var3_18 = 0;
                 Check.DataType[] dataTypeArray2 = Check.DataType.values();
                 n = dataTypeArray2.length;
                 while (var3_18 < n) {

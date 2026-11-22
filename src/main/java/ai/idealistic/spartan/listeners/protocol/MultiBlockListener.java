@@ -47,7 +47,7 @@ extends PacketAdapter {
         short[] records = (short[])packet.getShortArrays().read(0);
         Object[] blockData = (Object[])packet.getSpecificModifier(Object[].class).read(0);
         CheckThread.run(() -> {
-            for (i < records.length; ++i) {
+            for (int i = 0; i < records.length; ++i) {
                 short record = records[i];
                 int relX = record >> 8;
                 int relY = record & 0xF;

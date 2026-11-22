@@ -16,8 +16,8 @@ public final class Delta {
     }
 
     public Delta(Number x, Number y) {
-        this.x = x.(float)Value();
-        this.y = y.(float)Value();
+        this.x = x.floatValue();
+        this.y = y.floatValue();
     }
 
     public double distance(Delta vector2) {
@@ -76,8 +76,8 @@ public final class Delta {
     @Generated
     public int hashCode() {
         int PRIME = 59;
-        result = result * 59 + Float.(float)ToIntBits(this.getX());
-        result = result * 59 + Float.(float)ToIntBits(this.getY());
+        result = result * 59 + Float.floatToIntBits(this.getX());
+        result = result * 59 + Float.floatToIntBits(this.getY());
         return result;
     }
 

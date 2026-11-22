@@ -44,11 +44,11 @@ extends PacketAdapter {
         PlayerProtocol protocol = PluginBase.getProtocol(player);
         PacketContainer packet = event.getPacket();
         if (!packet.getShorts().getFields().isEmpty()) {
-            id = ((Short)packet.getShorts().read(0)).(short)Value();
+            id = ((Short)packet.getShorts().read(0)).shortValue();
         } else if (!packet.getIntegers().getFields().isEmpty()) {
             id = (Integer)packet.getIntegers().read(0);
         } else if (!packet.getLongs().getFields().isEmpty()) {
-            id = Math.toIntExact(Longpacket.getLongs().read(0));
+            id = Math.toIntExact((Long)packet.getLongs().read(0));
         } else {
             return;
         }

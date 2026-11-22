@@ -25,7 +25,7 @@ implements ClientMath {
     }
 
     static {
-        for (j < SIN_TABLE_FAST.length; ++j) {
+        for (int j = 0; j < SIN_TABLE_FAST.length; ++j) {
             Sin.SIN_TABLE_FAST[j] = Sin.roundToFloat(Math.sin((double)j * Math.PI * 2.0.0));
         }
     }

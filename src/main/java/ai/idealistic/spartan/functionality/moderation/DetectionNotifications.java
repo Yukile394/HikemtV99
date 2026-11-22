@@ -29,7 +29,7 @@ public class DetectionNotifications {
             }
             return list;
         }
-        return new ArrayList<PlayerProtocol>0;
+        return new ArrayList<PlayerProtocol>(0);
     }
 
     public static boolean isEnabled(PlayerProtocol p) {

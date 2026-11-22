@@ -44,10 +44,10 @@ public class MultiVersion {
         String version = Bukkit.getVersion();
         version = version.substring(0, version.length() - 1);
         try {
-            for (i <= version.length(); ++i) {
+            for (int i = 0; i <= version.length(); ++i) {
                 if (!version.substring(i).startsWith("(MC: ")) continue;
                 version = version.substring(i + 5);
-                for (x <= version.length(); ++x) {
+                for (int x = 0; x <= version.length(); ++x) {
                     for (MCVersion mcversion : MCVersion.values()) {
                         if (!mcversion.defaultString().equalsIgnoreCase("V" + version.substring(0, version.length() - x).replace(".", "_"))) continue;
                         return mcversion;

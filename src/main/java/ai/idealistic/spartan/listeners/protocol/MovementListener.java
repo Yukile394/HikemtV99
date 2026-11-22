@@ -62,8 +62,8 @@ extends PacketAdapter {
             return;
         }
         if (!event.getPacket().getFloat().getValues().isEmpty()) {
-            tp.setYaw(((Float)event.getPacket().getFloat().read(0)).(float)Value());
-            tp.setPitch(((Float)event.getPacket().getFloat().read(1)).(float)Value());
+            tp.setYaw(((Float)event.getPacket().getFloat().read(0)).floatValue());
+            tp.setPitch(((Float)event.getPacket().getFloat().read(1)).floatValue());
         }
         Location loc = p.getLocation().clone();
         Location result = tp.clone();
@@ -104,12 +104,12 @@ extends PacketAdapter {
                 return;
             }
             if (ProtocolTools.hasRotation(event.getPacket().getType())) {
-                c.setYaw(((Float)event.getPacket().getFloat().read(0)).(float)Value());
-                c.setPitch(((Float)event.getPacket().getFloat().read(1)).(float)Value());
+                c.setYaw(((Float)event.getPacket().getFloat().read(0)).floatValue());
+                c.setPitch(((Float)event.getPacket().getFloat().read(1)).floatValue());
             }
             double[] dArray = v = new double[]{c.getX(), c.getY(), c.getZ(), c.getYaw(), c.getPitch()};
             int n = dArray.length;
-            for (i < n; ++i) {
+            for (int i = 0; i < n; ++i) {
                 Double check = dArray[i];
                 if (!check.isNaN() && !check.isInfinite() && !(Math.abs(check) > 3.0E8)) continue;
                 PluginBase.getProtocol((Player)player).punishments.kick((CommandSender)Bukkit.getConsoleSender(), "Invalid packet");
@@ -188,8 +188,8 @@ extends PacketAdapter {
                     }
                 }
                 if (hasRotation) {
-                    l.setYaw(((Float)packet.getFloat().read(0)).(float)Value());
-                    l.setPitch(((Float)packet.getFloat().read(1)).(float)Value());
+                    l.setYaw(((Float)packet.getFloat().read(0)).floatValue());
+                    l.setPitch(((Float)packet.getFloat().read(1)).floatValue());
                 }
             }
             if (p.useItemPacket) {

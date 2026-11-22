@@ -119,7 +119,7 @@ extends CheckRunner {
                             for (Vec3 eyeRotation : possibleEyeRotation) {
                                 Vec3 eyePos = new Vec3(l.getX(), l.getY() + (double)this.checkCheckCancellation(sneaking), l.getZ());
                                 Vec3 endReachRay = eyePos.addVector(eyeRotation.xCoord * 6.0, eyeRotation.yCoord * 6.0, eyeRotation.zCoord * 6.0);
-                                LinkedList<Location> positions = new LinkedList<Location>h;
+                                LinkedList<Location> positions = new LinkedList<Location>(h);
                                 positions.add(target.getLocation());
                                 positions.add(target.getFromLocation());
                                 positions.add(target.bukkit().getLocation().clone());
@@ -229,7 +229,7 @@ extends CheckRunner {
         String punish = null;
         double globalValue = 0.0;
         for (Double value : this.U) {
-            globalValue += value.(double)Value();
+            globalValue += value.doubleValue();
         }
         double result = globalValue / (double)this.U.size();
         double d = this.protocol.packetsEnabled() ? 0.43 : 0.5;

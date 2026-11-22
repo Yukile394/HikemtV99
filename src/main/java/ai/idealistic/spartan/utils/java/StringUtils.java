@@ -67,7 +67,7 @@ public final class StringUtils {
 
     public static List<String> constructDescription(String string, List<String> array, boolean space) {
         if (array == null) {
-            array = new ArrayList<String>40;
+            array = new ArrayList<String>(40);
         }
         if (!string.isEmpty()) {
             boolean hasColor;
@@ -81,7 +81,7 @@ public final class StringUtils {
                     array.add("");
                 }
                 int add = 40 + (hasColor ? 2 : 0);
-                for (level <= string.length(); level += add) {
+                for (int level = 0; level <= string.length(); level += add) {
                     array.add(color + StringUtils.substring(string, level, level + add));
                 }
             }
@@ -95,7 +95,7 @@ public final class StringUtils {
             return "";
         }
         StringBuilder b = new StringBuilder();
-        for (i < a.length; ++i) {
+        for (int i = 0; i < a.length; ++i) {
             if (a[i] == null) continue;
             b.append(a[i]);
             if (i == iMax) {

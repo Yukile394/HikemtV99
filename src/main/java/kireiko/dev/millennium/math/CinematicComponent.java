@@ -58,7 +58,7 @@ public final class CinematicComponent {
                 stackYaw.clear();
                 stackPitch.clear();
             }
-            if (shannonYaw.size() != 1 || shannonPitch.size() != 1 || (DoubleshannonYaw.toArray()[0]).(double)Value() != (DoubleshannonPitch.toArray()[0]).(double)Value()) {
+            if (shannonYaw.size() != 1 || shannonPitch.size() != 1 || ((Double)shannonYaw.toArray()[0]).doubleValue() != ((Double)shannonPitch.toArray()[0]).doubleValue()) {
                 this.isTotallyNotCinematic = 20;
             }
             GraphUtil.GraphResult resultsYaw = GraphUtil.getGraph(this.yawSamples);

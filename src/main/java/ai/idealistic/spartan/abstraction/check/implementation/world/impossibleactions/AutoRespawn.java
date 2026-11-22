@@ -42,7 +42,7 @@ extends CheckDetection {
     }
 
     private boolean canRun() {
-        return !PluginUtils.contains("respawn") && (!MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_15) || Booleanthis.protocol.getWorld().getGameRuleValue(GameRule.DO_IMMEDIATE_RESPAWN) != true);
+        return !PluginUtils.contains("respawn") && (!MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_15) || (Boolean)this.protocol.getWorld().getGameRuleValue(GameRule.DO_IMMEDIATE_RESPAWN) != true);
     }
 }
 

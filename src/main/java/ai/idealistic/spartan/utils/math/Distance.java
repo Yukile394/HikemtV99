@@ -50,21 +50,21 @@ public final class Distance {
     }
 
     public static int roundToNearest(Number number, int nearest) {
-        return (int)((long)nearest * Math.round(number.(double)Value() / (double)nearest));
+        return (int)((long)nearest * Math.round(number.doubleValue() / (double)nearest));
     }
 
     public static int floorToNearest(Number number, int nearest) {
-        return (int)((double)nearest * Math.floor(number.(double)Value() / (double)nearest));
+        return (int)((double)nearest * Math.floor(number.doubleValue() / (double)nearest));
     }
 
     public static int ceilToNearest(Number number, int nearest) {
-        return (int)((double)nearest * Math.ceil(number.(double)Value() / (double)nearest));
+        return (int)((double)nearest * Math.ceil(number.doubleValue() / (double)nearest));
     }
 
     public static int getUniqueMultiplications(int m) {
         int total = 0;
         int loop = m - 1;
-        for (i < loop; ++i) {
+        for (int i = 0; i < loop; ++i) {
             total += --m;
         }
         return total;
@@ -72,7 +72,7 @@ public final class Distance {
 
     public static int getUniqueMultiplicationsInRow(int m, int row) {
         int loop = m - 1;
-        for (i < loop; ++i) {
+        for (int i = 0; i < loop; ++i) {
             --m;
             if (i != row) continue;
             return m;

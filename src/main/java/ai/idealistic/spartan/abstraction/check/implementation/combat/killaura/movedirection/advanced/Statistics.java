@@ -62,13 +62,13 @@ implements HeuristicComponent {
         List<Float> jiffYaw = MathCollection.getJiffDelta(x, 5);
         List<Float> jiffPitch = MathCollection.getJiffDelta(y, 5);
         ArrayList<Float> jiffOmni = new ArrayList<Float>();
-        for (i < Math.min(jiffYaw.size(), jiffPitch.size()); ++i) {
-            jiffOmni.add(Float.valueOf(jiffYaw.get(i).(float)Value() / jiffPitch.get(i).(float)Value()));
+        for (int i = 0; i < Math.min(jiffYaw.size(), jiffPitch.size()); ++i) {
+            jiffOmni.add(Float.valueOf(jiffYaw.get(i).floatValue() / jiffPitch.get(i).floatValue()));
         }
         int infs = 0;
         Iterator iterator = jiffOmni.iterator();
         while (iterator.hasNext()) {
-            float j = ((Float)iterator.next()).(float)Value();
+            float j = ((Float)iterator.next()).floatValue();
             if (!Float.isInfinite(j)) continue;
             ++infs;
         }
@@ -83,11 +83,11 @@ implements HeuristicComponent {
             this.bL -= iqr < 7.0 ? 5.0f : 3.5f;
         }
         int jiffPatterns = 0;
-        for (i < jiffYaw.size(); ++i) {
-            float f = jiffYaw.get(i).(float)Value();
+        for (int i = 0; i < jiffYaw.size(); ++i) {
+            float f = jiffYaw.get(i).floatValue();
             if (!String.valueOf(f).contains("E") || f == 0.0f) continue;
-            for (r < jiffYaw.size(); ++r) {
-                if (r == i || f != jiffYaw.get(r).(float)Value()) continue;
+            for (int r = 0; r < jiffYaw.size(); ++r) {
+                if (r == i || f != jiffYaw.get(r).floatValue()) continue;
                 ++jiffPatterns;
             }
         }

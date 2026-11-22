@@ -241,7 +241,7 @@ public enum EnumFacing {
         $VALUES = new EnumFacing[]{DOWN, UP, NORTH, SOUTH, WEST, EAST};
         EnumFacing[] var0 = EnumFacing.values();
         int var1 = var0.length;
-        for (var2 < var1; ++var2) {
+        for (int var2 = 0; var2 < var1; ++var2) {
             EnumFacing var3;
             EnumFacing.VALUES[var3.index] = var3 = var0[var2];
             if (var3.getAxis().isHorizontal()) {

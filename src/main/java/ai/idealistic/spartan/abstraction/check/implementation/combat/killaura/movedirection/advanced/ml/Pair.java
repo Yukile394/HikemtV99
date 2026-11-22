@@ -64,7 +64,7 @@ implements HeuristicComponent {
             ArrayList<Class2> results = new ArrayList<Class2>();
             HashSet<String> modelsThatFlagged = new HashSet<String>();
             ModuleResultML finalModuleResult = new ModuleResultML(0, FlagType.NORMAL, null);
-            for (i < Model.MODEL_LIST.size(); ++i) {
+            for (int i = 0; i < Model.MODEL_LIST.size(); ++i) {
                 Class2 resultML = FactoryML.getModel(i).checkData(objectML);
                 Interface moduleML = Model.MODEL_LIST.get(i);
                 ModuleResultML moduleResultML = moduleML.getResult(resultML);

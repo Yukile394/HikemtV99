@@ -39,7 +39,7 @@ public final class MillenniumScheduler {
     }
 
     public static <T> Future<T> run(Callable<T> callable) {
-        return scheduler.submit(new DecoratedCallable<T>callable);
+        return scheduler.submit(new DecoratedCallable<T>(callable));
     }
 
     public static ScheduledFuture<?> later(Runnable runnable, long delay, TimeUnit time) {
@@ -68,7 +68,7 @@ public final class MillenniumScheduler {
         Class<?> clazz = object.getClass();
         StringBuilder sb = new StringBuilder(clazz.getSimpleName() + "{");
         Field[] fields = clazz.getDeclaredFields();
-        for (i < fields.length; ++i) {
+        for (int i = 0; i < fields.length; ++i) {
             Field field = fields[i];
             field.setAccessible(true);
             try {

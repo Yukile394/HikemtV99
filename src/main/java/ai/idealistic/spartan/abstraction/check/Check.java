@@ -42,7 +42,7 @@ public class Check {
     public static final int b = 10;
     private static final File file = new File(Register.plugin.getDataFolder() + "/checks.yml");
     private static final File d = new File(Register.plugin.getDataFolder() + "/advanced.yml");
-    private static final List<String> e = new ArrayList<String>10;
+    private static final List<String> e = new ArrayList<String>(10);
     public final CheckEnums.HackType hackType;
     private String name;
     private final Map<String, Object> f = new ConcurrentHashMap<String, Object>();
@@ -74,13 +74,13 @@ public class Check {
         for (DataType dataType : DataType.values()) {
             boolean enabled;
             Object optionValue = this.handleCheck("enabled." + dataType.toString().toLowerCase(), true, false);
-            this.i[dataType.ordinal()] = enabled = optionValue instanceof Boolean ? BooleanoptionValue : (optionValue instanceof Long || optionValue instanceof Integer || optionValue instanceof Short ? LongoptionValue > 0L : (optionValue instanceof Double || optionValue instanceof Float ? DoubleoptionValue > 0.0 : Boolean.parseBoolean(optionValue.toString().toLowerCase())));
+            this.i[dataType.ordinal()] = enabled = optionValue instanceof Boolean ? (Boolean)optionValue : (optionValue instanceof Long || optionValue instanceof Integer || optionValue instanceof Short ? (Long)optionValue > 0L : (optionValue instanceof Double || optionValue instanceof Float ? (Double)optionValue > 0.0 : Boolean.parseBoolean(optionValue.toString().toLowerCase())));
             optionValue = this.handleCheck("silent." + dataType.toString().toLowerCase(), false, false);
-            this.j[dataType.ordinal()] = optionValue instanceof Boolean ? BooleanoptionValue : (optionValue instanceof Long || optionValue instanceof Integer || optionValue instanceof Short ? LongoptionValue > 0L : (optionValue instanceof Double || optionValue instanceof Float ? DoubleoptionValue > 0.0 : Boolean.parseBoolean(optionValue.toString().toLowerCase())));
+            this.j[dataType.ordinal()] = optionValue instanceof Boolean ? (Boolean)optionValue : (optionValue instanceof Long || optionValue instanceof Integer || optionValue instanceof Short ? (Long)optionValue > 0L : (optionValue instanceof Double || optionValue instanceof Float ? (Double)optionValue > 0.0 : Boolean.parseBoolean(optionValue.toString().toLowerCase())));
             optionValue = this.handleCheck("punishments.enabled." + dataType.toString().toLowerCase(), true, false);
-            this.k[dataType.ordinal()] = optionValue instanceof Boolean ? BooleanoptionValue : (optionValue instanceof Long || optionValue instanceof Integer || optionValue instanceof Short ? LongoptionValue > 0L : (optionValue instanceof Double || optionValue instanceof Float ? DoubleoptionValue > 0.0 : Boolean.parseBoolean(optionValue.toString().toLowerCase())));
+            this.k[dataType.ordinal()] = optionValue instanceof Boolean ? (Boolean)optionValue : (optionValue instanceof Long || optionValue instanceof Integer || optionValue instanceof Short ? (Long)optionValue > 0L : (optionValue instanceof Double || optionValue instanceof Float ? (Double)optionValue > 0.0 : Boolean.parseBoolean(optionValue.toString().toLowerCase())));
             optionValue = this.handleCheck("detection_details." + dataType.toString().toLowerCase(), true, false);
-            this.n[dataType.ordinal()] = optionValue instanceof Boolean ? BooleanoptionValue : (optionValue instanceof Long || optionValue instanceof Integer || optionValue instanceof Short ? LongoptionValue > 0L : (optionValue instanceof Double || optionValue instanceof Float ? DoubleoptionValue > 0.0 : Boolean.parseBoolean(optionValue.toString().toLowerCase())));
+            this.n[dataType.ordinal()] = optionValue instanceof Boolean ? (Boolean)optionValue : (optionValue instanceof Long || optionValue instanceof Integer || optionValue instanceof Short ? (Long)optionValue > 0L : (optionValue instanceof Double || optionValue instanceof Float ? (Double)optionValue > 0.0 : Boolean.parseBoolean(optionValue.toString().toLowerCase())));
         }
         if (name != null) {
             if (name.length() > 32) {
@@ -89,38 +89,38 @@ public class Check {
         } else {
             this.name = hackType.toString();
         }
-        this.g = handleCancelledEvents != null ? (handleCancelledEvents instanceof Boolean ? BooleanhandleCancelledEvents : (handleCancelledEvents instanceof Long || handleCancelledEvents instanceof Integer || handleCancelledEvents instanceof Short ? LonghandleCancelledEvents > 0L : (handleCancelledEvents instanceof Double || handleCancelledEvents instanceof Float ? DoublehandleCancelledEvents > 0.0 : Boolean.parseBoolean(handleCancelledEvents.toString().toLowerCase())))) : false;
+        this.g = handleCancelledEvents != null ? (handleCancelledEvents instanceof Boolean ? (Boolean)handleCancelledEvents : (handleCancelledEvents instanceof Long || handleCancelledEvents instanceof Integer || handleCancelledEvents instanceof Short ? (Long)handleCancelledEvents > 0L : (handleCancelledEvents instanceof Double || handleCancelledEvents instanceof Float ? (Double)handleCancelledEvents > 0.0 : Boolean.parseBoolean(handleCancelledEvents.toString().toLowerCase())))) : false;
         if (worlds_config != null) {
             worldsSplit = worlds_config.split(",");
             size = worldsSplit.length;
             if (size > 0) {
-                HashSet<String> set = new HashSet<String>size;
+                HashSet<String> set = new HashSet<String>(size);
                 for (String world : worldsSplit) {
                     if ((world = world.replace(" ", "")).isEmpty()) continue;
                     set.add(world.toLowerCase());
                 }
-                this.o = !set.isEmpty() ? set : new HashSet<String>0;
+                this.o = !set.isEmpty() ? set : new HashSet<String>(0);
             } else {
-                this.o = new HashSet<String>0;
+                this.o = new HashSet<String>(0);
             }
         } else {
-            this.o = new HashSet<String>0;
+            this.o = new HashSet<String>(0);
         }
         if (silents_config != null) {
             worldsSplit = silents_config.split(",");
             size = worldsSplit.length;
             if (size > 0) {
-                HashSet<String> set = new HashSet<String>size;
+                HashSet<String> set = new HashSet<String>(size);
                 for (String world : worldsSplit) {
                     if ((world = world.replace(" ", "")).isEmpty()) continue;
                     set.add(world.toLowerCase());
                 }
-                this.q = !set.isEmpty() ? set : new HashSet<String>0;
+                this.q = !set.isEmpty() ? set : new HashSet<String>(0);
             } else {
-                this.q = new HashSet<String>0;
+                this.q = new HashSet<String>(0);
             }
         } else {
-            this.q = new HashSet<String>0;
+            this.q = new HashSet<String>(0);
         }
         this.handleDataType();
     }
@@ -261,7 +261,7 @@ public class Check {
 
     public boolean handleCheck(String option, Boolean def) {
         Object object = this.handleCheck(option, def, true);
-        return object instanceof Boolean ? Booleanobject : (object instanceof String ? Boolean.parseBoolean(object.toString().toLowerCase()) : (object instanceof Long || object instanceof Integer || object instanceof Short ? Longobject > 0L : (object instanceof Double || object instanceof Float ? Doubleobject > 0.0 : def != null && def)));
+        return object instanceof Boolean ? (Boolean)object : (object instanceof String ? Boolean.parseBoolean(object.toString().toLowerCase()) : (object instanceof Long || object instanceof Integer || object instanceof Short ? (Long)object > 0L : (object instanceof Double || object instanceof Float ? (Double)object > 0.0 : def != null && def)));
     }
 
     public int handleCheck(String option, int def) {
@@ -294,13 +294,13 @@ public class Check {
             return (Double)object;
         }
         if (object instanceof Long) {
-            return ((Long)object).(double)Value();
+            return ((Long)object).doubleValue();
         }
         if (object instanceof Integer) {
-            return ((Integer)object).(double)Value();
+            return ((Integer)object).doubleValue();
         }
         if (object instanceof Short) {
-            return ((Short)object).(double)Value();
+            return ((Short)object).doubleValue();
         }
         if (object instanceof String) {
             try {
@@ -400,7 +400,7 @@ public class Check {
         String sectionString = (Object)this.hackType + ".punishments.commands";
         YamlConfiguration configuration = YamlConfiguration.loadConfiguration((File)file);
         if (!configuration.contains(sectionString)) {
-            for (position < e.size(); ++position) {
+            for (int position = 0; position < e.size(); ++position) {
                 ConfigUtils.add(file, sectionString + "." + (position + 1), e.get(position));
             }
         }
@@ -418,7 +418,7 @@ public class Check {
             }
             this.r = list;
         } else {
-            this.r = new ArrayList<String>0;
+            this.r = new ArrayList<String>(0);
         }
     }
 

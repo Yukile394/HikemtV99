@@ -50,7 +50,7 @@ public class IntegerDelays {
         if (delaysList != null) {
             ArrayList<Integer> snapshot;
             synchronized (delaysList) {
-                snapshot = new ArrayList<Integer>delaysList;
+                snapshot = new ArrayList<Integer>(delaysList);
             }
             return Collections.max(snapshot) / 50;
         }

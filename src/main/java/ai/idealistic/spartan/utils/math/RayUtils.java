@@ -359,7 +359,7 @@ public final class RayUtils {
         float bruteForce = 0.01f;
         float bruteForceStart = 0.01f;
         boolean checked = false;
-        for (i < 40; ++i) {
+        for (int i = 0; i < 40; ++i) {
             if (RayUtils.inHitbox(protocol, target, bruteForceStart)) {
                 bruteForce = bruteForceStart;
                 checked = true;
@@ -374,7 +374,7 @@ public final class RayUtils {
         float bruteForce = 0.01f;
         float bruteForceStart = 0.01f;
         boolean checked = false;
-        for (i < 60; ++i) {
+        for (int i = 0; i < 60; ++i) {
             if (RayUtils.inHitbox(protocol, target, bruteForceStart)) {
                 bruteForce = bruteForceStart;
                 checked = true;
@@ -389,7 +389,7 @@ public final class RayUtils {
         float bruteForce = 0.01f;
         float bruteForceStart = 0.01f;
         boolean checked = false;
-        for (i < 100; ++i) {
+        for (int i = 0; i < 100; ++i) {
             if (RayUtils.inHitbox(protocol, location, target, bruteForceStart, 3.0f)) {
                 bruteForce = bruteForceStart;
                 checked = true;
@@ -408,7 +408,7 @@ public final class RayUtils {
         double yR = Math.toRadians(yaw);
         RayLine ray = new RayLine(-Math.sin(yR), Math.cos(yR));
         double eyeHeight = RayUtils.getEyeHeight(sneak, instance);
-        for (i < maxSteps; ++i) {
+        for (int i = 0; i < maxSteps; ++i) {
             double newX = player.getX() + ray.x * d;
             double newY = player.getY() + eyeHeight - 1.0;
             double newZ = player.getZ() + ray.z * d;

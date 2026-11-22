@@ -31,7 +31,7 @@ extends InventoryMenu {
         if (!PluginAddons.freeEdition) {
             return false;
         }
-        ArrayList<String> lore = new ArrayList<String>5;
+        ArrayList<String> lore = new ArrayList<String>(5);
         lore.add("");
         lore.add("\u00a7ahttps://spartan.top \u00a78- \u00a72Spartan AntiCheat");
         lore.add("\u00a73The longest living Minecraft paid anti cheat!");

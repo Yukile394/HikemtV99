@@ -301,7 +301,7 @@ implements Cloneable {
             double xBox = this.getX() - (double)this.getBlockX();
             double zBox = this.getZ() - (double)this.getBlockZ();
             if (xBox > x && xBox < endX && zBox > z && zBox < endZ) {
-                ArrayList<ServerLocation> locations = new ArrayList<ServerLocation>2;
+                ArrayList<ServerLocation> locations = new ArrayList<ServerLocation>(2);
                 locations.add(this.clone().add(0.0, y, 0.0));
                 return locations;
             }
@@ -425,14 +425,14 @@ implements Cloneable {
     public int hashCode() {
         int PRIME = 59;
         int result = 1;
-        long $x = Double.(double)ToLongBits(this.getX());
+        long $x = Double.doubleToLongBits(this.getX());
         result = result * 59 + (int)($x >>> 32 ^ $x);
-        long $y = Double.(double)ToLongBits(this.getY());
+        long $y = Double.doubleToLongBits(this.getY());
         result = result * 59 + (int)($y >>> 32 ^ $y);
-        long $z = Double.(double)ToLongBits(this.getZ());
+        long $z = Double.doubleToLongBits(this.getZ());
         result = result * 59 + (int)($z >>> 32 ^ $z);
-        result = result * 59 + Float.(float)ToIntBits(this.getYaw());
-        result = result * 59 + Float.(float)ToIntBits(this.getPitch());
+        result = result * 59 + Float.floatToIntBits(this.getYaw());
+        result = result * 59 + Float.floatToIntBits(this.getPitch());
         World $world = this.getWorld();
         result = result * 59 + ($world == null ? 43 : $world.hashCode());
         return result;

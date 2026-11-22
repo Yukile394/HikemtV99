@@ -456,7 +456,7 @@ extends CheckRunner {
 
     private boolean handleCheck(Location ... l) {
         for (int dx = -2; dx <= 2; ++dx) {
-            for (dy <= 2; ++dy) {
+            for (int dy = 0; dy <= 2; ++dy) {
                 for (int dz = -2; dz <= 3; ++dz) {
                     for (Location location : l) {
                         double x = location.getX();

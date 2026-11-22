@@ -364,7 +364,7 @@ public class Metrics {
 
         private static String escape(String value) {
             StringBuilder builder = new StringBuilder();
-            for (i < value.length(); ++i) {
+            for (int i = 0; i < value.length(); ++i) {
                 char c = value.charAt(i);
                 if (c == '\"') {
                     builder.append("\\\"");

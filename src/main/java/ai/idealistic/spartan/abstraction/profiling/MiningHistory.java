@@ -101,7 +101,7 @@ public class MiningHistory {
     MiningHistory(PlayerProfile profile, MiningOre ore) {
         World.Environment[] environments = World.Environment.values();
         this.count = new int[environments.length];
-        for (i < environments.length; ++i) {
+        for (int i = 0; i < environments.length; ++i) {
             this.count[i] = 0;
         }
     }

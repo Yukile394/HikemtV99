@@ -110,13 +110,13 @@ public class Class2 {
         public int hashCode() {
             int PRIME = 59;
             int result = 1;
-            long $UNUSUAL = Double.(double)ToLongBits(this.getUNUSUAL());
+            long $UNUSUAL = Double.doubleToLongBits(this.getUNUSUAL());
             result = result * 59 + (int)($UNUSUAL >>> 32 ^ $UNUSUAL);
-            long $STRANGE = Double.(double)ToLongBits(this.getSTRANGE());
+            long $STRANGE = Double.doubleToLongBits(this.getSTRANGE());
             result = result * 59 + (int)($STRANGE >>> 32 ^ $STRANGE);
-            long $SUSPECTED = Double.(double)ToLongBits(this.getSUSPECTED());
+            long $SUSPECTED = Double.doubleToLongBits(this.getSUSPECTED());
             result = result * 59 + (int)($SUSPECTED >>> 32 ^ $SUSPECTED);
-            long $SUSPICIOUSLY = Double.(double)ToLongBits(this.getSUSPICIOUSLY());
+            long $SUSPICIOUSLY = Double.doubleToLongBits(this.getSUSPICIOUSLY());
             result = result * 59 + (int)($SUSPICIOUSLY >>> 32 ^ $SUSPICIOUSLY);
             return result;
         }

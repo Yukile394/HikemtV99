@@ -44,7 +44,7 @@ implements Serializable {
         double vl = 0.0;
         List<Double> values = data.getValues();
         this.fixed = 0;
-for (i <= values.size() / this.stackSize && (index = i * this.stackSize) + this.stackSize <= values.size(); ++i) {
+for (int i = 0; i <= values.size() / this.stackSize && (index = i * this.stackSize) + this.stackSize <= values.size(); ++i) {
             List<Double> stack = values.subList(index, index + this.stackSize);
             List<Double> stackDelta = this.calculateStackDelta(stack);
             StatisticPattern statisticPattern = this.createStatisticPattern(stackDelta);
@@ -63,7 +63,7 @@ for (i <= values.size() / this.stackSize && (index = i * this.stackSize) + this.
         this.validateData(data);
         List<Double> values = data.getValues();
         this.fixed = 0;
-        for (i <= values.size() / this.stackSize && (index = i * this.stackSize) + this.stackSize <= values.size(); ++i) {
+        for (int i = 0; i <= values.size() / this.stackSize && (index = i * this.stackSize) + this.stackSize <= values.size(); ++i) {
             List<Double> stack = values.subList(index, index + this.stackSize);
             List<Double> stackDelta = this.calculateStackDelta(stack);
             StatisticPattern statisticPattern = this.createStatisticPattern(stackDelta);
@@ -199,7 +199,7 @@ for (i <= values.size() / this.stackSize && (index = i * this.stackSize) + this.
     public int hashCode() {
         int PRIME = 59;
         result = result * 59 + this.getStackSize();
-        long $scale = Double.(double)ToLongBits(this.getScale());
+        long $scale = Double.doubleToLongBits(this.getScale());
         result = result * 59 + (int)($scale >>> 32 ^ $scale);
         result = result * 59 + this.getFixed();
         result = result * 59 + this.getLearned();

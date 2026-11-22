@@ -130,7 +130,7 @@ extends CheckRunner {
         if (p.getTimePassed(p.magmaCubeWater) <= 1000L || p.getTimePassed(p.soulSandWater) <= 1000L) {
             return true;
         }
-        for (i < NumberConversions.ceil((double)p.getEyeHeight()); ++i) {
+        for (int i = 0; i < NumberConversions.ceil((double)p.getEyeHeight()); ++i) {
             Material m = new ServerLocation(p.getLocation().clone().add(0.0, (double)i, 0.0)).getBlock(this.protocol).getType();
             if (!BlockUtils.areInteractiveBushes(m) && !BlockUtils.areWebs(m)) continue;
             return true;

@@ -37,7 +37,7 @@ extends PacketAdapter {
             return;
         }
         PacketContainer packet = event.getPacket();
-        if (packet.getType().equals(PacketType.Play.Server.UPDATE_HEALTH) && (Floatpacket.getFloat().read(0)).(float)Value() <= 0.0f) {
+        if (packet.getType().equals(PacketType.Play.Server.UPDATE_HEALTH) && ((Float)packet.getFloat().read(0)).floatValue() <= 0.0f) {
             CheckThread.run(() -> {
                 DeathEvent.event(event.getPlayer(), true, event);
                 protocol.useItemPacket = false;

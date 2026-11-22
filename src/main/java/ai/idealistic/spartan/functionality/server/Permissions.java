@@ -71,14 +71,14 @@ public class Permissions {
         Collection<PlayerProtocol> protocols = PluginBase.getProtocols();
         int size = protocols.size();
         if (size > 0) {
-            ArrayList<PlayerProtocol> array = new ArrayList<PlayerProtocol>size;
+            ArrayList<PlayerProtocol> array = new ArrayList<PlayerProtocol>(size);
             for (PlayerProtocol protocol : protocols) {
                 if (!Permissions.isStaff(protocol.bukkit())) continue;
                 array.add(protocol);
             }
             return array;
         }
-        return new ArrayList<PlayerProtocol>0;
+        return new ArrayList<PlayerProtocol>(0);
     }
 }
 

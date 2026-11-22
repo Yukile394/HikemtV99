@@ -63,7 +63,7 @@ implements HeuristicComponent {
         int resultDistinct = 0;
         Iterator iterator = x.iterator();
         while (iterator.hasNext()) {
-            float yaw = ((Float)iterator.next()).(float)Value();
+            float yaw = ((Float)iterator.next()).floatValue();
             yawStack.add(Float.valueOf(yaw));
             if (yawStack.size() < 10) continue;
             resultDistinct += MathCollection.getDistinct(MathCollection.getJiffDelta(yawStack, 4));
@@ -76,7 +76,7 @@ implements HeuristicComponent {
             double normal = 0.0;
             Iterator<Float> iterator2 = this.bg.iterator();
             while (iterator2.hasNext()) {
-                double d = iterator2.next().(float)Value();
+                double d = iterator2.next().floatValue();
                 if (!(d > 0.97)) continue;
                 normal += 1.0;
             }
@@ -101,7 +101,7 @@ implements HeuristicComponent {
         int resultDistinct = 0;
         Iterator iterator = x.iterator();
         while (iterator.hasNext()) {
-            float yaw = ((Float)iterator.next()).(float)Value();
+            float yaw = ((Float)iterator.next()).floatValue();
             yawStack.add(Float.valueOf(yaw));
             if (yawStack.size() < 10) continue;
             resultDeviation.add(MathCollection.getStandardDeviation(MathCollection.getJiffDelta(yawStack, 5)));

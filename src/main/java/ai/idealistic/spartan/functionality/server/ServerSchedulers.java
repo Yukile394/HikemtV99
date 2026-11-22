@@ -92,7 +92,7 @@ class ServerSchedulers {
     static void cancel(Object task) {
         if (!MultiVersion.folia) {
             if (task instanceof Integer) {
-                Bukkit.getScheduler().cancelTask(((Integer)task).(int)Value());
+                Bukkit.getScheduler().cancelTask(((Integer)task).intValue());
             }
         } else if (task instanceof ScheduledTask) {
             ((ScheduledTask)task).cancel();

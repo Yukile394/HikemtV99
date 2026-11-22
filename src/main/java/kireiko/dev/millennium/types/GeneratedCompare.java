@@ -16,8 +16,8 @@ public final class GeneratedCompare {
     }
 
     public GeneratedCompare(Number x, Number y) {
-        this.x = x.(int)Value();
-        this.y = y.(int)Value();
+        this.x = x.intValue();
+        this.y = y.intValue();
     }
 
     public double distance(GeneratedCompare vector2) {

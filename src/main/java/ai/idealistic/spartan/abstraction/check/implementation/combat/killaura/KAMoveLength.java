@@ -34,9 +34,9 @@ extends CheckDetection {
         this.call(() -> {
             if (this.aD - System.currentTimeMillis() <= 2000L && this.aE - System.currentTimeMillis() <= 1000L) {
                 float pitch = this.protocol.getLocation().getPitch();
-                float pitchDifference = Math.abs(pitch - this.az.(float)Value());
-                if ((double)pitchDifference > 0.0 && (double)this.aA.(float)Value() > 0.0) {
-                    double gcd = Distance.findGCD(16384.0, (double)pitchDifference * av, (double)this.aA.(float)Value() * av) / av;
+                float pitchDifference = Math.abs(pitch - this.az.floatValue());
+                if ((double)pitchDifference > 0.0 && (double)this.aA.floatValue() > 0.0) {
+                    double gcd = Distance.findGCD(16384.0, (double)pitchDifference * av, (double)this.aA.floatValue() * av) / av;
                     if (gcd <= 0.005) {
                         boolean safe = gcd <= 0.001;
                         Buffer.Storage buffer = safe ? this.aC : this.aB;

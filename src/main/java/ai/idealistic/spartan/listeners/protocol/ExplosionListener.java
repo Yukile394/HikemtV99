@@ -43,7 +43,7 @@ extends PacketAdapter {
             if (!Config.settings.getBoolean("Important.bedrock_on_protocollib") && protocol.isBedrockPlayer()) {
                 return;
             }
-            Location l = new Location(player.getWorld(), ((Double)d.get(0)).(double)Value(), ((Double)d.get(1)).(double)Value(), ((Double)d.get(2)).(double)Value());
+            Location l = new Location(player.getWorld(), ((Double)d.get(0)).doubleValue(), ((Double)d.get(1)).doubleValue(), ((Double)d.get(2)).doubleValue());
             if (ServerLocation.distanceSquared(l, protocol.getLocation()) < 10.0) {
                 CheckThread.run(() -> {
                     protocol.getComponentY().explosionTick = true;

@@ -27,7 +27,7 @@ import org.bukkit.entity.Player;
 
 public class CommandTab
 implements TabCompleter {
-    private static final Map<String, Permission[]> commands = new LinkedHashMap<String, Permission[]>18;
+    private static final Map<String, Permission[]> commands = new LinkedHashMap<String, Permission[]>(18);
 
     public List<String> onTabComplete(CommandSender sender, Command command, String arg, String[] args) {
         ArrayList<String> list;

@@ -48,9 +48,9 @@ extends PacketAdapter {
             int id = (Integer)packet.getIntegers().getValues().get(0);
             if (protocol.getEntityId() == id) {
                 CheckThread.run(() -> {
-                    double x = (Integerpacket.getIntegers().read(1)).(double)Value() / 8000.0;
-                    double y = (Integerpacket.getIntegers().read(2)).(double)Value() / 8000.0;
-                    double z = (Integerpacket.getIntegers().read(3)).(double)Value() / 8000.0;
+                    double x = ((Integer)packet.getIntegers().read(1)).doubleValue() / 8000.0;
+                    double y = ((Integer)packet.getIntegers().read(2)).doubleValue() / 8000.0;
+                    double z = ((Integer)packet.getIntegers().read(3)).doubleValue() / 8000.0;
                     CPlayerVelocityEvent velocityEvent = new CPlayerVelocityEvent(player, new Vector(x, y, z));
                     velocityEvent.setCancelled(event.isCancelled());
                     VelocityEvent.event(velocityEvent, true);

@@ -156,7 +156,7 @@ public class PlayerProtocol {
     private boolean afk;
     private boolean cinematic;
     private boolean teleportTick;
-    private final List<Integer> sensitivity = new Full<Integer>14;
+    private final List<Integer> sensitivity = new Full<Integer>(14);
     private final OtherSensitivityProcessor sensitivityProcessor = new OtherSensitivityProcessor(this);
     private final CinematicComponent cinematicComponent = new CinematicComponent(this);
     private Entity[] nearbyEntities;
@@ -212,7 +212,7 @@ public class PlayerProtocol {
         this.slime0Tick = 0;
         this.schedulerFrom = this.location;
         this.clampVector = new Vector();
-        this.potionEffects = new ConcurrentHashMap<PotionEffectType, ExtendedPotionEffect>2;
+        this.potionEffects = new ConcurrentHashMap<PotionEffectType, ExtendedPotionEffect>(2);
         this.setStoredPotionEffects();
         this.lastInteraction = System.currentTimeMillis();
         this.afk = false;
@@ -383,7 +383,7 @@ public class PlayerProtocol {
         }
         try {
             Object obj = PluginBase.getCraftPlayerMethod(this.bukkit(), "ping");
-            return obj instanceof Integer ? Math.max(Integerobj, 0) : 0;
+            return obj instanceof Integer ? Math.max((Integer)obj, 0) : 0;
         }
         catch (Exception ignored) {
             return 0;
@@ -494,7 +494,7 @@ public class PlayerProtocol {
             } else {
                 if (cutDecimals) {
                     for (Object object : message) {
-                        message[i] = object instanceof Double ? ((i + 1) % 2 == 0 ? "\u00a7c" : "\u00a77") + Distance.computeAlgebra(Doubleobject, (double)GroundUtils.maxHeightLength) : ((i + 1) % 2 == 0 ? "\u00a7c" : "\u00a77") + object;
+                        message[i] = object instanceof Double ? ((i + 1) % 2 == 0 ? "\u00a7c" : "\u00a77") + Distance.computeAlgebra((Double)object, (double)GroundUtils.maxHeightLength) : ((i + 1) % 2 == 0 ? "\u00a7c" : "\u00a77") + object;
                         ++i;
                     }
                 } else {
@@ -545,7 +545,7 @@ public class PlayerProtocol {
     }
 
     public ServerLocation getTargetBlock(double distance, double limit) {
-        for (i < NumberConversions.ceil((double)Math.min(distance, limit)); ++i) {
+        for (int i = 0; i < NumberConversions.ceil((double)Math.min(distance, limit)); ++i) {
             ServerLocation location = new ServerLocation(this.getLocation().clone().add(0.0, this.getEyeHeight(), 0.0).add(this.getLocation().getDirection().multiply(i)));
             if (!BlockUtils.isFullSolid(location.getBlock(this).getType())) continue;
             return location.getBlockLocation();
@@ -614,7 +614,7 @@ public class PlayerProtocol {
 
     public List<Entity> getNearbyEntities(double radius) {
         if (MultiVersion.folia) {
-            return new ArrayList<Entity>0;
+            return new ArrayList<Entity>(0);
         }
         this.maxNearbyEntitiesCoordinate[0] = Math.max(radius, this.maxNearbyEntitiesCoordinate[0]);
         this.maxNearbyEntitiesCoordinate[1] = Math.max(radius, this.maxNearbyEntitiesCoordinate[1]);
@@ -625,7 +625,7 @@ public class PlayerProtocol {
             return list;
         }
         if (this.nearbyEntities.length == 0) {
-            return new ArrayList<Entity>0;
+            return new ArrayList<Entity>(0);
         }
         ArrayList<Entity> entities = new ArrayList<Entity>();
         Location location = this.getLocation();
@@ -659,7 +659,7 @@ public class PlayerProtocol {
             return list;
         }
         if (this.nearbyEntities.length == 0) {
-            return new ArrayList<Entity>0;
+            return new ArrayList<Entity>(0);
         }
         ArrayList<Entity> entities = new ArrayList<Entity>();
         Location location = this.getLocation();

@@ -21,7 +21,7 @@ public class Cooldowns {
         if (object == null) {
             return 0;
         }
-        return (object = Long.valueOf(object - System.currentTimeMillis())) < 0L ? 0 : NumberConversions.ceil((double)((double)object.(long)Value() / 50.0));
+        return (object = Long.valueOf(object - System.currentTimeMillis())) < 0L ? 0 : NumberConversions.ceil((double)((double)object.longValue() / 50.0));
     }
 
     public boolean canDo(String name) {

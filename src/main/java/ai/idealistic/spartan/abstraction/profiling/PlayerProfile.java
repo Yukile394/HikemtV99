@@ -45,7 +45,7 @@ public class PlayerProfile {
         this.data = new Map[CheckEnums.HackType.values().length][Check.DataType.values().length];
         for (CheckEnums.HackType hackType : CheckEnums.HackType.values()) {
             for (Check.DataType dataType : Check.DataType.values()) {
-                this.data[hackType.ordinal()][dataType.ordinal()] = new ConcurrentHashMap<String, List<Long>>1;
+                this.data[hackType.ordinal()][dataType.ordinal()] = new ConcurrentHashMap<String, List<Long>>(1);
             }
         }
         for (Enum enum_ : MiningHistory.MiningOre.values()) {
@@ -65,7 +65,7 @@ public class PlayerProfile {
         this.data = new Map[CheckEnums.HackType.values().length][Check.DataType.values().length];
         for (CheckEnums.HackType hackType : CheckEnums.HackType.values()) {
             for (Check.DataType dataType : Check.DataType.values()) {
-                this.data[hackType.ordinal()][dataType.ordinal()] = new ConcurrentHashMap<String, List<Long>>1;
+                this.data[hackType.ordinal()][dataType.ordinal()] = new ConcurrentHashMap<String, List<Long>>(1);
             }
         }
         for (Enum enum_ : MiningHistory.MiningOre.values()) {
@@ -118,7 +118,7 @@ public class PlayerProfile {
             }
             return data;
         }
-        return new ArrayList<Long>0;
+        return new ArrayList<Long>(0);
     }
 
     public double getAverageTimeDifference(CheckEnums.HackType hackType, Check.DataType dataType, String detection) {
@@ -133,7 +133,7 @@ public class PlayerProfile {
                     total += (double)absTime;
                     continue;
                 }
-                total += (double)time.(long)Value();
+                total += (double)time.longValue();
             }
             if (total > 0.0) {
                 return total / (double)data.size();

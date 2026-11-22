@@ -16,8 +16,8 @@ public final class Vec2 {
     }
 
     public Vec2(Number x, Number y) {
-        this.x = x.(double)Value();
-        this.y = y.(double)Value();
+        this.x = x.doubleValue();
+        this.y = y.doubleValue();
     }
 
     public double distance(Vec2 vector2) {
@@ -77,9 +77,9 @@ public final class Vec2 {
     public int hashCode() {
         int PRIME = 59;
         int result = 1;
-        long $x = Double.(double)ToLongBits(this.getX());
+        long $x = Double.doubleToLongBits(this.getX());
         result = result * 59 + (int)($x >>> 32 ^ $x);
-        long $y = Double.(double)ToLongBits(this.getY());
+        long $y = Double.doubleToLongBits(this.getY());
         result = result * 59 + (int)($y >>> 32 ^ $y);
         return result;
     }

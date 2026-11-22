@@ -20,7 +20,7 @@ implements List<E> {
     private final Map<Integer, E> map;
 
     public ConcurrentList(int size) {
-        this.map = new ConcurrentHashMap<Integer, E>size;
+        this.map = new ConcurrentHashMap<Integer, E>(size);
     }
 
     public ConcurrentList() {
@@ -169,7 +169,7 @@ implements List<E> {
         if (this.size() != list.size()) {
             return false;
         }
-        for (i < this.size(); ++i) {
+        for (int i = 0; i < this.size(); ++i) {
             if (this.get(i).equals(list.get(i))) continue;
             return false;
         }

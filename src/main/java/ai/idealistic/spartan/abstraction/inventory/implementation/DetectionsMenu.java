@@ -29,7 +29,7 @@ import org.bukkit.inventory.ItemStack;
 public class DetectionsMenu
 extends InventoryMenu {
     public static final String title = "Check Detections";
-    private static final Map<String, Material> items = new HashMap<String, Material>53;
+    private static final Map<String, Material> items = new HashMap<String, Material>(53);
 
     public DetectionsMenu() {
         super(title, 54, Permission.MANAGE);

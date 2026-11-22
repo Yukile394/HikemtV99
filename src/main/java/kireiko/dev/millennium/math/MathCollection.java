@@ -26,12 +26,12 @@ public final class MathCollection {
         double sum = 0.0;
         double variance = 0.0;
         for (Number number : data) {
-            sum += number.(double)Value();
+            sum += number.doubleValue();
             ++count;
         }
         double average = sum / (double)count;
         for (Number number : data) {
-            variance += Math.pow(number.(double)Value() - average, 2.0);
+            variance += Math.pow(number.doubleValue() - average, 2.0);
         }
         return variance / (double)count;
     }
@@ -39,7 +39,7 @@ public final class MathCollection {
     public static double getMin(Collection<? extends Number> collection) {
         double min = Double.MAX_VALUE;
         for (Number number : collection) {
-            min = Math.min(min, number.(double)Value());
+            min = Math.min(min, number.doubleValue());
         }
         return min;
     }
@@ -56,7 +56,7 @@ public final class MathCollection {
     public static double getMax(Collection<? extends Number> collection) {
         double max = Double.MIN_VALUE;
         for (Number number : collection) {
-            max = Math.max(max, number.(double)Value());
+            max = Math.max(max, number.doubleValue());
         }
         return max;
     }
@@ -71,13 +71,13 @@ public final class MathCollection {
         int count = 0;
         ArrayList numbers = Lists.newArrayList();
         for (Number number : data) {
-            sum += number.(double)Value();
+            sum += number.doubleValue();
             ++count;
-            numbers.add(number.(double)Value());
+            numbers.add(number.doubleValue());
         }
         Collections.sort(numbers);
         double mean = sum / (double)count;
-        double median = count % 2 != 0 ? Doublenumbers.get(count / 2) : (Doublenumbers.get((count - 1) / 2) + Doublenumbers.get(count / 2)) / 2.0;
+        double median = count % 2 != 0 ? (Double)numbers.get(count / 2) : ((Double)numbers.get((count - 1) / 2) + (Double)numbers.get(count / 2)) / 2.0;
         double variance = MathCollection.getVariance(data);
         return 3.0 * (mean - median) / variance;
     }
@@ -85,7 +85,7 @@ public final class MathCollection {
     public static double getAverage(Collection<? extends Number> data) {
         double sum = 0.0;
         for (Number number : data) {
-            sum += number.(double)Value();
+            sum += number.doubleValue();
         }
         double result = sum / (double)data.size();
         return Double.isNaN(result) ? 0.0 : result;
@@ -95,7 +95,7 @@ public final class MathCollection {
         double sum = 0.0;
         int count = 0;
         for (Number number : data) {
-            sum += number.(double)Value();
+            sum += number.doubleValue();
             ++count;
         }
         if ((double)count < 3.0) {
@@ -107,8 +107,8 @@ public final class MathCollection {
         double variance = 0.0;
         double varianceSquared = 0.0;
         for (Number number : data) {
-            variance += Math.pow(average - number.(double)Value(), 2.0);
-            varianceSquared += Math.pow(average - number.(double)Value(), 4.0);
+            variance += Math.pow(average - number.doubleValue(), 2.0);
+            varianceSquared += Math.pow(average - number.doubleValue(), 4.0);
         }
         return efficiencyFirst * (varianceSquared / Math.pow(variance / sum, 2.0)) - efficiencySecond;
     }
@@ -140,7 +140,7 @@ public final class MathCollection {
     public static double getModeDouble(Double[] data) {
         double maxValue = -1.0;
         int maxCount = 0;
-        for (i < data.length; ++i) {
+        for (int i = 0; i < data.length; ++i) {
             double currentValue = data[i];
             int currentCount = 1;
             for (int j = i + 1; j < data.length; ++j) {
@@ -166,11 +166,11 @@ public final class MathCollection {
     }
 
     public static boolean isExponentiallySmall(Number number) {
-        return number.(double)Value() < 1.0 && (Double.toString(number.(double)Value()).contains("E") || number.(double)Value() == 0.0);
+        return number.doubleValue() < 1.0 && (Double.toString(number.doubleValue()).contains("E") || number.doubleValue() == 0.0);
     }
 
     public static boolean isExponentiallyLarge(Number number) {
-        return number.(double)Value() > 10000.0 && Double.toString(number.(double)Value()).contains("E");
+        return number.doubleValue() > 10000.0 && Double.toString(number.doubleValue()).contains("E");
     }
 
     public static long getGcd(long current, long previous) {
@@ -203,9 +203,9 @@ public final class MathCollection {
     }
 
     public static float gcdRational(List<Float> numbers) {
-        float result = numbers.get(0).(float)Value();
-        for (i < numbers.size(); ++i) {
-            result = MathCollection.gcdRational(numbers.get(i).(float)Value(), result);
+        float result = numbers.get(0).floatValue();
+        for (int i = 0; i < numbers.size(); ++i) {
+            result = MathCollection.gcdRational(numbers.get(i).floatValue(), result);
             if (!((double)result < 1.0E-7)) continue;
             return 0.0f;
         }
@@ -241,7 +241,7 @@ public final class MathCollection {
     public static Pair<List<Double>, List<Double>> getOutliers(Collection<? extends Number> collection) {
         ArrayList<Double> values = new ArrayList<Double>();
         for (Number number : collection) {
-            values.add(number.(double)Value());
+            values.add(number.doubleValue());
         }
         double q1 = MathCollection.getMedian(values.subList(0, values.size() / 2));
         double q3 = MathCollection.getMedian(values.subList(values.size() / 2, values.size()));
@@ -264,7 +264,7 @@ public final class MathCollection {
         ArrayList<Long> (long)List = new ArrayList<Long>();
         for (Integer i : integerList) {
             if (i != null) {
-                (long)List.add(i.(long)Value());
+                (long)List.add(i.longValue());
                 continue;
             }
             (long)List.add(null);
@@ -305,9 +305,9 @@ public final class MathCollection {
         double sumXY = 0.0;
         double sumX2 = 0.0;
         double sumY2 = 0.0;
-        for (i < x.size(); ++i) {
-            double dx = x.get(i).(double)Value() - meanX;
-            double dy = y.get(i).(double)Value() - meanY;
+        for (int i = 0; i < x.size(); ++i) {
+            double dx = x.get(i).doubleValue() - meanX;
+            double dy = y.get(i).doubleValue() - meanY;
             sumXY += dx * dy;
             sumX2 += dx * dx;
             sumY2 += dy * dy;
@@ -324,15 +324,15 @@ public final class MathCollection {
     public static double getShannonEntropy(Collection<? extends Number> data) {
         Map<Double, Long> freqMap = data.stream().collect(Collectors.groupingBy(Number::(double)Value, Collectors.counting()));
         double total = data.size();
-        return -freqMap.values().stream().mapToDouble(count -> (double)count.(long)Value() / total * (Math.log((double)count.(long)Value() / total) / Math.log(2.0))).sum();
+        return -freqMap.values().stream().mapToDouble(count -> (double)count.longValue() / total * (Math.log((double)count.longValue() / total) / Math.log(2.0))).sum();
     }
 
     public static double getHarmonicMean(Collection<? extends Number> data) {
         double sum = 0.0;
         int count = 0;
         for (Number number : data) {
-            if (number.(double)Value() == 0.0) continue;
-            sum += 1.0 / number.(double)Value();
+            if (number.doubleValue() == 0.0) continue;
+            sum += 1.0 / number.doubleValue();
             ++count;
         }
         return count == 0 ? 0.0 : (double)count / sum;
@@ -347,9 +347,9 @@ public final class MathCollection {
         double sumY = 0.0;
         double sumXY = 0.0;
         double sumX2 = 0.0;
-        for (i < n; ++i) {
+        for (int i = 0; i < n; ++i) {
             double x = i + 1;
-            double y = data.get(i).(double)Value();
+            double y = data.get(i).doubleValue();
             sumX += x;
             sumY += y;
             sumXY += x * y;
@@ -365,8 +365,8 @@ public final class MathCollection {
         double meanX = MathCollection.getAverage(x);
         double meanY = MathCollection.getAverage(y);
         double sum = 0.0;
-        for (i < x.size(); ++i) {
-            sum += (x.get(i).(double)Value() - meanX) * (y.get(i).(double)Value() - meanY);
+        for (int i = 0; i < x.size(); ++i) {
+            sum += (x.get(i).doubleValue() - meanX) * (y.get(i).doubleValue() - meanY);
         }
         return sum / (double)x.size();
     }
@@ -380,7 +380,7 @@ public final class MathCollection {
     public static double getQuantile(Collection<? extends Number> data, double quantile) {
         List sorted = data.stream().map(Number::(double)Value).sorted().collect(Collectors.toList());
         int index = (int)Math.ceil(quantile * (double)sorted.size()) - 1;
-        return Doublesorted.get(Math.max(0, Math.min(index, sorted.size() - 1)));
+        return (Double)sorted.get(Math.max(0, Math.min(index, sorted.size() - 1)));
     }
 
     public static double getGiniIndex(Collection<? extends Number> data) {
@@ -388,8 +388,8 @@ public final class MathCollection {
         int n = sorted.size();
         double sum = 0.0;
         for (Double aDouble : sorted) {
-            for (j < n; ++j) {
-                sum += Math.abs(aDouble - Doublesorted.get(j));
+            for (int j = 0; j < n; ++j) {
+                sum += Math.abs(aDouble - (Double)sorted.get(j));
             }
         }
         double mean = MathCollection.getAverage(data);
@@ -406,9 +406,9 @@ public final class MathCollection {
         double mean = MathCollection.getAverage(data);
         double stdDev = MathCollection.getStandardDeviation(data);
         for (Number number : data) {
-            double zScore = (number.(double)Value() - mean) / stdDev;
+            double zScore = (number.doubleValue() - mean) / stdDev;
             if (!(Math.abs(zScore) > threshold)) continue;
-            outliers.add(number.(double)Value());
+            outliers.add(number.doubleValue());
         }
         return outliers;
     }
@@ -420,9 +420,9 @@ public final class MathCollection {
         double meanActual = MathCollection.getAverage(actual);
         double ssTotal = 0.0;
         double ssResidual = 0.0;
-        for (i < actual.size(); ++i) {
-            double diffActual = actual.get(i).(double)Value() - meanActual;
-            double diffResidual = actual.get(i).(double)Value() - predicted.get(i).(double)Value();
+        for (int i = 0; i < actual.size(); ++i) {
+            double diffActual = actual.get(i).doubleValue() - meanActual;
+            double diffResidual = actual.get(i).doubleValue() - predicted.get(i).doubleValue();
             ssTotal += diffActual * diffActual;
             ssResidual += diffResidual * diffResidual;
         }
@@ -435,9 +435,9 @@ public final class MathCollection {
         double numerator = 0.0;
         double denominatorX = 0.0;
         double denominatorY = 0.0;
-        for (i < x.size(); ++i) {
-            double diffX = x.get(i).(double)Value() - meanX;
-            double diffY = y.get(i).(double)Value() - meanY;
+        for (int i = 0; i < x.size(); ++i) {
+            double diffX = x.get(i).doubleValue() - meanX;
+            double diffY = y.get(i).doubleValue() - meanY;
             numerator += diffX * diffY;
             denominatorX += diffX * diffX;
             denominatorY += diffY * diffY;
@@ -461,9 +461,9 @@ public final class MathCollection {
         double meanActual = MathCollection.getAverage(actual);
         double ssTotal = 0.0;
         double ssResidual = 0.0;
-        for (i < actual.size(); ++i) {
-            double y = actual.get(i).(double)Value();
-            double yPred = predicted.get(i).(double)Value();
+        for (int i = 0; i < actual.size(); ++i) {
+            double y = actual.get(i).doubleValue();
+            double yPred = predicted.get(i).doubleValue();
             ssTotal += Math.pow(y - meanActual, 2.0);
             ssResidual += Math.pow(y - yPred, 2.0);
         }
@@ -482,10 +482,10 @@ public final class MathCollection {
 
     public static List<Double> movingAverage(List<? extends Number> data, int windowSize) {
         ArrayList<Double> result = new ArrayList<Double>();
-        for (i <= data.size() - windowSize; ++i) {
+        for (int i = 0; i <= data.size() - windowSize; ++i) {
             double sum = 0.0;
-            for (j < windowSize; ++j) {
-                sum += data.get(i + j).(double)Value();
+            for (int j = 0; j < windowSize; ++j) {
+                sum += data.get(i + j).doubleValue();
             }
             result.add(sum / (double)windowSize);
         }
@@ -494,10 +494,10 @@ public final class MathCollection {
 
     public static List<Double> exponentialMovingAverage(List<? extends Number> data, double smoothingFactor) {
         ArrayList<Double> result = new ArrayList<Double>();
-        double ema = data.get(0).(double)Value();
+        double ema = data.get(0).doubleValue();
         result.add(ema);
-        for (i < data.size(); ++i) {
-            double value = data.get(i).(double)Value();
+        for (int i = 0; i < data.size(); ++i) {
+            double value = data.get(i).doubleValue();
             ema = smoothingFactor * value + (1.0 - smoothingFactor) * ema;
             result.add(ema);
         }
@@ -510,9 +510,9 @@ public final class MathCollection {
         double sumY = 0.0;
         double sumXY = 0.0;
         double sumX2 = 0.0;
-        for (i < n; ++i) {
-            double xi = x.get(i).(double)Value();
-            double yi = y.get(i).(double)Value();
+        for (int i = 0; i < n; ++i) {
+            double xi = x.get(i).doubleValue();
+            double yi = y.get(i).doubleValue();
             sumX += xi;
             sumY += yi;
             sumXY += xi * yi;
@@ -526,9 +526,9 @@ public final class MathCollection {
     public static double regressionStandardError(List<? extends Number> x, List<? extends Number> y, double slope, double intercept) {
         int n = x.size();
         double sumSquaredErrors = 0.0;
-        for (i < n; ++i) {
-            double xi = x.get(i).(double)Value();
-            double yi = y.get(i).(double)Value();
+        for (int i = 0; i < n; ++i) {
+            double xi = x.get(i).doubleValue();
+            double yi = y.get(i).doubleValue();
             double predicted = slope * xi + intercept;
             sumSquaredErrors += Math.pow(yi - predicted, 2.0);
         }
@@ -539,9 +539,9 @@ public final class MathCollection {
         List sorted = data.stream().map(Number::(double)Value).sorted().collect(Collectors.toList());
         int n = sorted.size();
         int trimCount = (int)((double)n * trimFraction);
-        double lowerBound = Doublesorted.get(trimCount - 1);
-        double upperBound = Doublesorted.get(n - trimCount);
-        ArrayList<Double> winsorized = new ArrayList<Double>n;
+        double lowerBound = (Double)sorted.get(trimCount - 1);
+        double upperBound = (Double)sorted.get(n - trimCount);
+        ArrayList<Double> winsorized = new ArrayList<Double>(n);
         Iterator iterator = sorted.iterator();
         while (iterator.hasNext()) {
             double value = (Double)iterator.next();
@@ -562,7 +562,7 @@ public final class MathCollection {
         List sorted = data.stream().map(Number::(double)Value).sorted().collect(Collectors.toList());
         int n = sorted.size();
         double dStatistic = 0.0;
-        for (i < n; ++i) {
+        for (int i = 0; i < n; ++i) {
             double empiricalCDF = (double)(i + 1) / (double)n;
             double theoreticalCDF = cdfFunction.apply((Double)sorted.get(i));
             dStatistic = Math.max(dStatistic, Math.abs(empiricalCDF - theoreticalCDF));
@@ -571,10 +571,10 @@ public final class MathCollection {
     }
 
     public static double getExponentiallyWeightedVariance(List<? extends Number> data, double alpha) {
-        double ewMean = data.get(0).(double)Value();
+        double ewMean = data.get(0).doubleValue();
         double ewVariance = 0.0;
-        for (i < data.size(); ++i) {
-            double value = data.get(i).(double)Value();
+        for (int i = 0; i < data.size(); ++i) {
+            double value = data.get(i).doubleValue();
             ewMean = alpha * value + (1.0 - alpha) * ewMean;
             ewVariance = alpha * Math.pow(value - ewMean, 2.0) + (1.0 - alpha) * ewVariance;
         }
@@ -586,7 +586,7 @@ public final class MathCollection {
         double stdDelta = MathCollection.getStandardDeviation(aimDeltas);
         double deltaZSum = 0.0;
         for (Number number : aimDeltas) {
-            double z = stdDelta == 0.0 ? 0.0 : (number.(double)Value() - avgDelta) / stdDelta;
+            double z = stdDelta == 0.0 ? 0.0 : (number.doubleValue() - avgDelta) / stdDelta;
             deltaZSum += Math.abs(z);
         }
         double avgDeltaZ = deltaZSum / (double)aimDeltas.size();
@@ -594,7 +594,7 @@ public final class MathCollection {
         double stdReaction = MathCollection.getStandardDeviation(reactionTimes);
         double reactionZSum = 0.0;
         for (Number number : reactionTimes) {
-            double z = stdReaction == 0.0 ? 0.0 : (number.(double)Value() - avgReaction) / stdReaction;
+            double z = stdReaction == 0.0 ? 0.0 : (number.doubleValue() - avgReaction) / stdReaction;
             reactionZSum += Math.abs(z);
         }
         double avgReactionZ = reactionZSum / (double)reactionTimes.size();
@@ -603,14 +603,14 @@ public final class MathCollection {
 
     public static List<Double> kalmanFilterPredict(List<? extends Number> measurements, double processVariance, double measurementVariance) {
         int n = measurements.size();
-        ArrayList<Double> predictions = new ArrayList<Double>n;
-        double estimate = measurements.get(0).(double)Value();
+        ArrayList<Double> predictions = new ArrayList<Double>(n);
+        double estimate = measurements.get(0).doubleValue();
         double errorCovariance = 1.0;
         predictions.add(estimate);
-        for (i < n; ++i) {
+        for (int i = 0; i < n; ++i) {
             double prediction = estimate;
             double predictedError = errorCovariance + processVariance;
-            double measurement = measurements.get(i).(double)Value();
+            double measurement = measurements.get(i).doubleValue();
             double kalmanGain = predictedError / (predictedError + measurementVariance);
             estimate = prediction + kalmanGain * (measurement - prediction);
             errorCovariance = (1.0 - kalmanGain) * predictedError;
@@ -629,7 +629,7 @@ public final class MathCollection {
         }
         dtw[0][0] = 0.0;
         for (i = 1; i <= n; ++i) {
-            for (j <= m; ++j) {
+            for (int j = 0; j <= m; ++j) {
                 double cost = Math.abs(series1.get(i - 1) - series2.get(j - 1));
                 dtw[i][j] = cost + Math.min(Math.min(dtw[i - 1][j], dtw[i][j - 1]), dtw[i - 1][j - 1]);
             }
@@ -642,7 +642,7 @@ public final class MathCollection {
         ArrayList<Integer> changePoints = new ArrayList<Integer>();
         double posSum = 0.0;
         double negSum = 0.0;
-        for (i < series.size(); ++i) {
+        for (int i = 0; i < series.size(); ++i) {
             double value = (Double)series.get(i);
             posSum = Math.max(0.0, posSum + value - drift);
             negSum = Math.min(0.0, negSum + value + drift);
@@ -661,14 +661,14 @@ public final class MathCollection {
     public static List<Float> getJiffDelta(List<? extends Number> data, int depth) {
         ArrayList<Float> result = new ArrayList<Float>();
         for (Number number : data) {
-            result.add(Float.valueOf(number.(float)Value()));
+            result.add(Float.valueOf(number.floatValue()));
         }
-        for (i < depth; ++i) {
+        for (int i = 0; i < depth; ++i) {
             ArrayList<Float> arrayList = new ArrayList<Float>();
             float old = Float.MIN_VALUE;
             Iterator iterator = result.iterator();
             while (iterator.hasNext()) {
-                float n = ((Float)iterator.next()).(float)Value();
+                float n = ((Float)iterator.next()).floatValue();
                 if (old == Float.MIN_VALUE) {
                     old = n;
                     continue;
@@ -683,7 +683,7 @@ public final class MathCollection {
 
     public static List<Double> getRanks(List<? extends Number> data) {
         List sorted = data.stream().map(Number::(double)Value).sorted().collect(Collectors.toList());
-        return data.stream().map(v -> sorted.indexOf(v.(double)Value()) + 1).collect(Collectors.toList());
+        return data.stream().map(v -> sorted.indexOf(v.doubleValue()) + 1).collect(Collectors.toList());
     }
 
     public static int getDistinct(Collection<? extends Number> data) {

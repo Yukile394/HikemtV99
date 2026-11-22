@@ -30,7 +30,7 @@ public class Slope {
         this.observations = n;
         double meanY = 0.0;
         double meanX = 0.0;
-        for (i < n; ++i) {
+        for (int i = 0; i < n; ++i) {
             meanY += y[i];
             meanX += x[i];
         }
@@ -38,7 +38,7 @@ public class Slope {
         meanX /= (double)n;
         double xMinusBarX_sumPowered = 0.0;
         double yMinusBarY_MultipliedBy_xMinusBarX_sum = 0.0;
-        for (i < n; ++i) {
+        for (int i = 0; i < n; ++i) {
             double yMinusBarY = y[i] - meanY;
             double xMinusBarX = x[i] - meanX;
             yMinusBarY_MultipliedBy_xMinusBarX_sum += yMinusBarY * xMinusBarX;
@@ -49,7 +49,7 @@ public class Slope {
         double yPredictedMinusBarY_sumPowered = 0.0;
         double yMinusBarY_sumPowered = 0.0;
         double yPredictedMinusY_sumPowered = 0.0;
-        for (i < n; ++i) {
+        for (int i = 0; i < n; ++i) {
             double yCurrent = y[i];
             double yPredicted = this.predictY(x[i]);
             double yPredictedMinusY = yPredicted - yCurrent;

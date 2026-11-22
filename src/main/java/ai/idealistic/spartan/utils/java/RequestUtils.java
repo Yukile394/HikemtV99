@@ -35,7 +35,7 @@ public final class RequestUtils {
             wr.close();
         }
         BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-        ArrayList<String> array = new ArrayList<String>50;
+        ArrayList<String> array = new ArrayList<String>(50);
         while ((line = in.readLine()) != null) {
             array.add(line);
         }

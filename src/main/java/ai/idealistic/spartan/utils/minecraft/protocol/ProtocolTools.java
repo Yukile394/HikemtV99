@@ -30,7 +30,7 @@ public class ProtocolTools {
     public static Location readLocation(PacketEvent event) {
         PacketContainer packet = event.getPacket();
         if (packet.getDoubles().size() >= 3) {
-            return new Location(ProtocolLib.getWorld((Entity)event.getPlayer()), ((Double)packet.getDoubles().read(0)).(double)Value(), ((Double)packet.getDoubles().read(1)).(double)Value(), ((Double)packet.getDoubles().read(2)).(double)Value());
+            return new Location(ProtocolLib.getWorld((Entity)event.getPlayer()), ((Double)packet.getDoubles().read(0)).doubleValue(), ((Double)packet.getDoubles().read(1)).doubleValue(), ((Double)packet.getDoubles().read(2)).doubleValue());
         }
         return null;
     }
@@ -45,12 +45,12 @@ public class ProtocolTools {
 
     public static boolean onGroundPacketLevel(PacketEvent event) {
         PacketContainer packet = event.getPacket();
-        return packet.getBooleans().size() > 0 && Booleanpacket.getBooleans().read(0) != false;
+        return packet.getBooleans().size() > 0 && (Boolean)packet.getBooleans().read(0) != false;
     }
 
     public static Set<MovementListener.tpFlags> getTeleportFlags(PacketEvent event) {
         String s = ((InternalStructure)event.getPacket().getStructures().getValues().get(0)).toString();
-        HashSet<MovementListener.tpFlags> flags = new HashSet<MovementListener.tpFlags>3;
+        HashSet<MovementListener.tpFlags> flags = new HashSet<MovementListener.tpFlags>(3);
         if ((s = s.replace("X_ROT", "").replace("Y_ROT", "")).contains("X")) {
             flags.add(MovementListener.tpFlags.X);
         }

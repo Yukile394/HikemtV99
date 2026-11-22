@@ -215,7 +215,7 @@ public class ResearchEngine {
             Collections.reverse(list);
             return list;
         }
-        return new ArrayList<File>0;
+        return new ArrayList<File>(0);
     }
 
     private static Map<String, String> getLogs() {
@@ -225,7 +225,7 @@ public class ResearchEngine {
         LinkedHashMap<String, String> cache;
         block10: {
             cache = new LinkedHashMap<String, String>();
-            int (byte)Size = 0;
+            int byteSize = 0;
             isFull = false;
             continueWithYAML = false;
             if (Config.sql.isEnabled()) {
@@ -236,7 +236,7 @@ public class ResearchEngine {
                             String data = rs.getString("information");
                             String date = rs.getString("creation_date");
                             cache.put(date, data);
-                            if (((byte)Size += date.length() + data.length()) < PluginBase.maxBytes) continue;
+                            if ((byteSize += date.length() + data.length()) < PluginBase.maxBytes) continue;
                             isFull = true;
                             break;
                         }
@@ -262,7 +262,7 @@ public class ResearchEngine {
                     String data = c.getString(key);
                     if (data == null) continue;
                     cache.put(key, data);
-                    if (((byte)Size += key.length() + data.length()) < PluginBase.maxBytes) continue;
+                    if ((byteSize += key.length() + data.length()) < PluginBase.maxBytes) continue;
                     isFull = true;
                     break;
                 }

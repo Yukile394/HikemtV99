@@ -61,7 +61,7 @@ public final class OtherSensitivityProcessor {
     public void processSensitivity() {
         double finalSensitivity;
         if ((double)Math.abs(this.deltaPitch) < 0.31) {
-            for (i < 200; ++i) {
+            for (int i = 0; i < 200; ++i) {
                 double gcdValue = MathCollection.getGCDValue(SENSITIVITY_MCP_VALUES[i]);
                 double diff = Math.abs(gcdValue - (double)Math.abs(this.deltaPitch));
                 if (!(diff < 0.001)) continue;
@@ -70,7 +70,7 @@ public final class OtherSensitivityProcessor {
                 int finalSens = (int)MathCollection.getMin(this.sensitivityStrictSamples);
                 if (finalSens == this.lastStrictSensitivity) {
                     this.playerProfile.getSensitivity().clear();
-                    for (r < 5; ++r) {
+                    for (int r = 0; r < 5; ++r) {
                         this.playerProfile.getSensitivity().add(finalSens);
                     }
                 } else {

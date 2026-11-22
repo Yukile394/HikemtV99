@@ -14,7 +14,7 @@ public class Utils {
     }
 
     public static int calculateSensitivity(float deltaYaw) {
-        for (i <= 200; ++i) {
+        for (int i = 0; i <= 200; ++i) {
             int sensitivity;
             float gcdValue = Utils.getGCDValue(i);
             float sensitivityRaw = deltaYaw / gcdValue;

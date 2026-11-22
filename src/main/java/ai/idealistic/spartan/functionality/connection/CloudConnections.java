@@ -44,7 +44,7 @@ public class CloudConnections {
             if (results.length > 0) {
                 String[] announcements = results[0].split(">@#&!%<;=");
                 String[][] array = new String[results.length][0];
-                for (i < announcements.length; ++i) {
+                for (int i = 0; i < announcements.length; ++i) {
                     array[i] = StringUtils.decodeBase64(announcements[i]).split(">@#&!%<;=");
                 }
                 return array;

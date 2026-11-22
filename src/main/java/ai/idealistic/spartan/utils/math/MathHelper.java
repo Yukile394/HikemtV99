@@ -127,7 +127,7 @@ public class MathHelper {
         long var1 = 0L;
         long[] var3 = p_76127_0_;
         int var4 = p_76127_0_.length;
-        for (var5 < var4; ++var5) {
+        for (int var5 = 0; var5 < var4; ++var5) {
             long var6 = var3[var5];
             var1 += var6;
         }

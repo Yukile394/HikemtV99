@@ -43,7 +43,7 @@ extends InventoryMenu {
         ArrayList<String> list = new ArrayList<String>();
         int startingLine = 1;
         List<String> commands = check.checkCheckCancellation();
-        for (i < 10; ++i) {
+        for (int i = 0; i < 10; ++i) {
             int slot = startingLine * 11 + i - (i >= 5 ? 5 : 0);
             list.clear();
             list.add("");

@@ -492,7 +492,7 @@ public final class BlockUtils {
             builder.add(Material.getMaterial("STATIONARY_WATER"));
             builder.add(Material.getMaterial("STATIONARY_LAVA"));
         }
-        liquid = new HashSet<Material>builder;
+        liquid = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_14)) {
@@ -535,12 +535,12 @@ public final class BlockUtils {
         builder.add(Spade.get("enchanting_table"));
         builder.add(Spade.get("end_portal_frame"));
         builder.add(Spade.get("furnace"));
-        editable = new HashSet<Material>builder;
+        editable = new HashSet<Material>(builder);
         builder.clear();
         builder.add(Material.CHEST);
         builder.add(Material.TRAPPED_CHEST);
         builder.add(Material.ENDER_CHEST);
-        chest = new HashSet<Material>builder;
+        chest = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             for (Material m : materials) {
@@ -554,36 +554,36 @@ public final class BlockUtils {
             builder.add(Material.getMaterial("STONE_PLATE"));
             builder.add(Material.getMaterial("WOOD_PLATE"));
         }
-        plate = new HashSet<Material>builder;
+        plate = new HashSet<Material>(builder);
         builder.clear();
         builder.add(Spade.get("web"));
-        web = new HashSet<Material>builder;
+        web = new HashSet<Material>(builder);
         builder.clear();
         for (Material m : materials) {
             s = m.toString();
             if (!BlockUtils.contains(s, "WIRE")) continue;
             builder.add(m);
         }
-        wire = new HashSet<Material>builder;
+        wire = new HashSet<Material>(builder);
         builder.clear();
         for (Material m : materials) {
             s = m.toString();
             if (!BlockUtils.endsWith(s, "_ORE")) continue;
             builder.add(m);
         }
-        ores = new HashSet<Material>builder;
+        ores = new HashSet<Material>(builder);
         builder.clear();
         builder.add(Material.ICE);
         builder.add(Material.PACKED_ICE);
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_9)) {
             builder.add(Material.FROSTED_ICE);
         }
-        ice = new HashSet<Material>builder;
+        ice = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_9) && MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             builder.add(Material.BLUE_ICE);
         }
-        blue_ice = new HashSet<Material>builder;
+        blue_ice = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             builder.add(Material.GLASS_PANE);
@@ -596,7 +596,7 @@ public final class BlockUtils {
             builder.add(Material.getMaterial("THIN_GLASS"));
             builder.add(Material.getMaterial("STAINED_GLASS_PANE"));
         }
-        glass_pane = new HashSet<Material>builder;
+        glass_pane = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_20)) {
@@ -614,7 +614,7 @@ public final class BlockUtils {
             builder.add(Material.getMaterial("LOG"));
             builder.add(Material.getMaterial("LOG_2"));
         }
-        wood = new HashSet<Material>builder;
+        wood = new HashSet<Material>(builder);
         builder.clear();
         builder.add(Material.AIR);
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
@@ -624,7 +624,7 @@ public final class BlockUtils {
                 builder.add(m);
             }
         }
-        air = new HashSet<Material>builder;
+        air = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             for (Material m : materials) {
@@ -636,7 +636,7 @@ public final class BlockUtils {
             builder.add(Material.getMaterial("STAINED_GLASS"));
         }
         builder.add(Material.GLASS);
-        glass = new HashSet<Material>builder;
+        glass = new HashSet<Material>(builder);
         builder.clear();
         if (!MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             builder.add(Material.getMaterial("STEP"));
@@ -647,7 +647,7 @@ public final class BlockUtils {
             if (!BlockUtils.contains(s, "_SLAB")) continue;
             builder.add(m);
         }
-        slabs = new HashSet<Material>builder;
+        slabs = new HashSet<Material>(builder);
         builder.clear();
         builder.add(Material.LADDER);
         builder.add(Material.VINE);
@@ -656,7 +656,7 @@ public final class BlockUtils {
             if (!BlockUtils.endsWith(s, "_VINES") && !BlockUtils.endsWith(s, "_VINES_PLANT")) continue;
             builder.add(m);
         }
-        climbableOriginal = new HashSet<Material>builder;
+        climbableOriginal = new HashSet<Material>(builder);
         builder.clear();
         builder.addAll(climbableOriginal);
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_14)) {
@@ -665,7 +665,7 @@ public final class BlockUtils {
             }
             builder.add(Material.SCAFFOLDING);
         }
-        climbable = new HashSet<Material>builder;
+        climbable = new HashSet<Material>(builder);
         builder.clear();
         builder.add(Material.SAND);
         builder.add(Material.GRAVEL);
@@ -680,7 +680,7 @@ public final class BlockUtils {
                 builder.add(Material.getMaterial("CONCRETE_POWDER"));
             }
         }
-        entity_blocks = new HashSet<Material>builder;
+        entity_blocks = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             builder.add(Material.TERRACOTTA);
@@ -692,7 +692,7 @@ public final class BlockUtils {
         } else {
             builder.add(Material.getMaterial("STAINED_CLAY"));
         }
-        terracotta = new HashSet<Material>builder;
+        terracotta = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             for (Material m : materials) {
@@ -703,7 +703,7 @@ public final class BlockUtils {
         } else {
             builder.add(Material.getMaterial("WOOL"));
         }
-        wool = new HashSet<Material>builder;
+        wool = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_12)) {
             for (Material m : materials) {
@@ -712,7 +712,7 @@ public final class BlockUtils {
                 builder.add(m);
             }
         }
-        concrete = new HashSet<Material>builder;
+        concrete = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_16)) {
@@ -738,7 +738,7 @@ public final class BlockUtils {
             builder.add(Material.JUNGLE_DOOR);
             builder.add(Material.SPRUCE_DOOR);
         }
-        door = new HashSet<Material>builder;
+        door = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             for (Material m : materials) {
@@ -752,7 +752,7 @@ public final class BlockUtils {
                 builder.add(Material.IRON_TRAPDOOR);
             }
         }
-        trap_door = new HashSet<Material>builder;
+        trap_door = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             for (Material m : materials) {
@@ -763,7 +763,7 @@ public final class BlockUtils {
         } else {
             builder.add(Material.getMaterial("CARPET"));
         }
-        carpet = new HashSet<Material>builder;
+        carpet = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             for (Material m : materials) {
@@ -774,7 +774,7 @@ public final class BlockUtils {
         } else {
             builder.add(Material.getMaterial("BED_BLOCK"));
         }
-        bed = new HashSet<Material>builder;
+        bed = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             for (Material m : materials) {
@@ -786,7 +786,7 @@ public final class BlockUtils {
             builder.add(Material.getMaterial("STANDING_BANNER"));
             builder.add(Material.getMaterial("WALL_BANNER"));
         }
-        banner = new HashSet<Material>builder;
+        banner = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_11)) {
             for (Material m : materials) {
@@ -798,14 +798,14 @@ public final class BlockUtils {
                 builder.add(m);
             }
         }
-        shulker_box = new HashSet<Material>builder;
+        shulker_box = new HashSet<Material>(builder);
         builder.clear();
         for (Material m : materials) {
             s = m.toString();
             if (!BlockUtils.endsWith(s, "_STAIRS")) continue;
             builder.add(m);
         }
-        stairs = new HashSet<Material>builder;
+        stairs = new HashSet<Material>(builder);
         builder.clear();
         if (!MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             builder.add(Material.getMaterial("FENCE"));
@@ -815,7 +815,7 @@ public final class BlockUtils {
             if (!BlockUtils.endsWith(s, "_FENCE")) continue;
             builder.add(m);
         }
-        fence = new HashSet<Material>builder;
+        fence = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_17)) {
             for (Material m : materials) {
@@ -824,7 +824,7 @@ public final class BlockUtils {
                 builder.add(m);
             }
         }
-        candle = new HashSet<Material>builder;
+        candle = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_17)) {
             for (Material m : materials) {
@@ -833,7 +833,7 @@ public final class BlockUtils {
                 builder.add(m);
             }
         }
-        candleCake = new HashSet<Material>builder;
+        candleCake = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_17)) {
             for (Material m : materials) {
@@ -842,7 +842,7 @@ public final class BlockUtils {
                 builder.add(m);
             }
         }
-        dripleaf = new HashSet<Material>builder;
+        dripleaf = new HashSet<Material>(builder);
         builder.clear();
         if (!MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             builder.add(Material.getMaterial("FENCE_GATE"));
@@ -852,7 +852,7 @@ public final class BlockUtils {
             if (!BlockUtils.endsWith(s, "_FENCE_GATE")) continue;
             builder.add(m);
         }
-        fence_gate = new HashSet<Material>builder;
+        fence_gate = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             builder.add(Material.SKELETON_SKULL);
@@ -870,7 +870,7 @@ public final class BlockUtils {
         } else {
             builder.add(Material.getMaterial("SKULL"));
         }
-        heads = new HashSet<Material>builder;
+        heads = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             for (Material m : materials) {
@@ -882,7 +882,7 @@ public final class BlockUtils {
             builder.add(Material.getMaterial("LEAVES"));
             builder.add(Material.getMaterial("LEAVES_2"));
         }
-        leaves = new HashSet<Material>builder;
+        leaves = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             for (Material m : materials) {
@@ -893,7 +893,7 @@ public final class BlockUtils {
         } else {
             builder.add(Material.getMaterial("MONSTER_EGG"));
         }
-        egg = new HashSet<Material>builder;
+        egg = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             builder.add(Material.BRAIN_CORAL_FAN);
@@ -922,7 +922,7 @@ public final class BlockUtils {
             builder.add(Material.DEAD_TUBE_CORAL);
             builder.add(Material.DEAD_TUBE_CORAL_WALL_FAN);
         }
-        coral_fan = new HashSet<Material>builder;
+        coral_fan = new HashSet<Material>(builder);
         builder.clear();
         builder.add(Material.FLOWER_POT);
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
@@ -932,7 +932,7 @@ public final class BlockUtils {
                 builder.add(m);
             }
         }
-        pot = new HashSet<Material>builder;
+        pot = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             builder.add(Material.ANVIL);
@@ -941,30 +941,30 @@ public final class BlockUtils {
         } else {
             builder.add(Material.ANVIL);
         }
-        anvil = new HashSet<Material>builder;
+        anvil = new HashSet<Material>(builder);
         builder.clear();
         for (Material m : materials) {
             s = m.toString();
             if (!BlockUtils.endsWith(s, "_WALL")) continue;
             builder.add(m);
         }
-        cobble_walls = new HashSet<Material>builder;
+        cobble_walls = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_17)) {
             builder.add(Material.POWDER_SNOW);
         }
-        (int)eractive_snow = new HashSet<Material>builder;
+        (int)eractive_snow = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_14)) {
             builder.add(Material.SCAFFOLDING);
         }
-        scaffolding = new HashSet<Material>builder;
+        scaffolding = new HashSet<Material>(builder);
         builder.clear();
         for (Material m : materials) {
             if (!BlockUtils.areDripLeafs(m) && !BlockUtils.areWebs(m) && !BlockUtils.isPowderSnow(m) && !BlockUtils.isScaffoldingBlock(m)) continue;
             builder.add(m);
         }
-        (int)eractive_and_passable = new HashSet<Material>builder;
+        (int)eractive_and_passable = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             builder.add(Material.PISTON);
@@ -973,7 +973,7 @@ public final class BlockUtils {
             builder.add(Material.getMaterial("PISTON_BASE"));
             builder.add(Material.getMaterial("PISTON_STICKY_BASE"));
         }
-        piston = new HashSet<Material>builder;
+        piston = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_13)) {
             if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_14)) {
@@ -1070,13 +1070,13 @@ public final class BlockUtils {
             if (!BlockUtils.areFenceGates(m) && !BlockUtils.areFences(m) && !BlockUtils.areStairs(m) && !BlockUtils.areSlabs(m) && !BlockUtils.areTrapdoors(m) && !BlockUtils.areDoors(m) && !BlockUtils.areStainedGlasses(m) && !BlockUtils.areChests(m) && !BlockUtils.arePlates(m) && !BlockUtils.areShulkerBoxes(m) && !BlockUtils.areLeaves(m) && !BlockUtils.areHeads(m) && !BlockUtils.areCoralFans(m) && !BlockUtils.areAnvils(m) && !BlockUtils.areCarpets(m) && !BlockUtils.areBeds(m) && !BlockUtils.areFlowerPots(m) && !BlockUtils.areCobbleWalls(m) && !BlockUtils.areCandles(m) && !BlockUtils.areCandleCakes(m) && !BlockUtils.isInteractiveAndPassable(null, m) && !helper.contains(m)) continue;
             builder.add(m);
         }
-        semi_solid = new HashSet<Material>builder;
+        semi_solid = new HashSet<Material>(builder);
         builder.clear();
         for (Material m : materials) {
             if (!editable.contains(m) && !BlockUtils.areFenceGates(m) && !BlockUtils.areTrapdoors(m) && !BlockUtils.areChests(m) && !BlockUtils.areDoors(m) && !BlockUtils.areShulkerBoxes(m) && !BlockUtils.areBeds(m) && !BlockUtils.areAnvils(m)) continue;
             builder.add(m);
         }
-        changeable = new HashSet<Material>builder;
+        changeable = new HashSet<Material>(builder);
         builder.clear();
         helper.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_14)) {
@@ -1231,7 +1231,7 @@ public final class BlockUtils {
             if (BlockUtils.areFenceGates(m) || BlockUtils.areTrapdoors(m) || BlockUtils.arePlates(m) || BlockUtils.isLiquid(m) || BlockUtils.areDripLeafs(m) || BlockUtils.areBanners(m) || helper.contains(m)) continue;
             builder.add(m);
         }
-        solid = new HashSet<Material>builder;
+        solid = new HashSet<Material>(builder);
         builder.clear();
         helper.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_9)) {
@@ -1318,7 +1318,7 @@ public final class BlockUtils {
             if (BlockUtils.isSolid(m) && !BlockUtils.areGlasses(m) && !BlockUtils.areStainedGlasses(m) && !BlockUtils.areIceBlocks(m) && !BlockUtils.areCoralFans(m) && !BlockUtils.areLeaves(m) && !BlockUtils.areHeads(m) && !BlockUtils.areBeds(m) && !BlockUtils.areCarpets(m) && !BlockUtils.areFlowerPots(m) && !BlockUtils.isLiquid(m) && !BlockUtils.isScaffoldingBlock(m) && !BlockUtils.isPowderSnow(m) && !BlockUtils.areDripLeafs(m) && !BlockUtils.areCandles(m) && !BlockUtils.areCandleCakes(m) && !helper.contains(m)) continue;
             builder.add(m);
         }
-        sensitive = new HashSet<Material>builder;
+        sensitive = new HashSet<Material>(builder);
         builder.clear();
         helper.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_9)) {
@@ -1344,22 +1344,22 @@ public final class BlockUtils {
             if (!BlockUtils.areStainedGlasses(m) && !BlockUtils.areDoors(m) && !BlockUtils.areTrapdoors(m) && !BlockUtils.areChests(m) && !BlockUtils.areFences(m) && !BlockUtils.areFenceGates(m) && !BlockUtils.areCobbleWalls(m) && !BlockUtils.areFlowerPots(m) && !BlockUtils.areAnvils(m) && !helper.contains(m)) continue;
             builder.add(m);
         }
-        walls = new HashSet<Material>builder;
+        walls = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_14)) {
             builder.add(Material.SWEET_BERRY_BUSH);
         }
-        (int)eractive_bushes = new HashSet<Material>builder;
+        (int)eractive_bushes = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_15)) {
             builder.add(Material.HONEY_BLOCK);
         }
-        honey_block = new HashSet<Material>builder;
+        honey_block = new HashSet<Material>(builder);
         builder.clear();
         if (MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_8)) {
             builder.add(Material.SLIME_BLOCK);
         }
-        slime_block = new HashSet<Material>builder;
+        slime_block = new HashSet<Material>(builder);
         builder.clear();
         helper.clear();
     }

@@ -49,9 +49,9 @@ public class RayLine {
     public int hashCode() {
         int PRIME = 59;
         int result = 1;
-        long $x = Double.(double)ToLongBits(this.getX());
+        long $x = Double.doubleToLongBits(this.getX());
         result = result * 59 + (int)($x >>> 32 ^ $x);
-        long $z = Double.(double)ToLongBits(this.getZ());
+        long $z = Double.doubleToLongBits(this.getZ());
         result = result * 59 + (int)($z >>> 32 ^ $z);
         return result;
     }

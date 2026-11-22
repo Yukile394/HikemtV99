@@ -114,9 +114,9 @@ public class EnvironmentData {
             ServerLocation locationModified = location.clone();
             int max = blockY - minY;
             int playerHeight = NumberConversions.ceil((double)protocol.getEyeHeight());
-            HashSet<Integer> emptyNonLiquid = new HashSet<Integer>max;
-            HashSet<Integer> fullNonLiquid = new HashSet<Integer>max;
-            for (i <= max; ++i) {
+            HashSet<Integer> emptyNonLiquid = new HashSet<Integer>(max);
+            HashSet<Integer> fullNonLiquid = new HashSet<Integer>(max);
+            for (int i = 0; i <= max; ++i) {
                 Collection<ServerLocation> locations = locationModified.clone().add(0.0, -i, 0.0).getSurroundingLocations(0.3, 0.0, 0.3);
                 for (ServerLocation loc : locations) {
                     ServerBlock block = loc.getBlock();

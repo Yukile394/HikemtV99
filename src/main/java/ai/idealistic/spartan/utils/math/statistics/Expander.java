@@ -34,12 +34,12 @@ public final class Expander {
         double sum = 0.0;
         double variance = 0.0;
         for (Number number : data) {
-            sum += number.(double)Value();
+            sum += number.doubleValue();
             ++count;
         }
         double average = sum / (double)count;
         for (Number number : data) {
-            variance += Math.pow(number.(double)Value() - average, 2.0);
+            variance += Math.pow(number.doubleValue() - average, 2.0);
         }
         return variance / (double)count;
     }
@@ -47,7 +47,7 @@ public final class Expander {
     public static double getMin(Collection<? extends Number> collection) {
         double min = Double.MAX_VALUE;
         for (Number number : collection) {
-            min = Math.min(min, number.(double)Value());
+            min = Math.min(min, number.doubleValue());
         }
         return min;
     }
@@ -64,7 +64,7 @@ public final class Expander {
     public static double getMax(Collection<? extends Number> collection) {
         double max = Double.MIN_VALUE;
         for (Number number : collection) {
-            max = Math.max(max, number.(double)Value());
+            max = Math.max(max, number.doubleValue());
         }
         return max;
     }
@@ -79,13 +79,13 @@ public final class Expander {
         int count = 0;
         ArrayList numbers = Lists.newArrayList();
         for (Number number : data) {
-            sum += number.(double)Value();
+            sum += number.doubleValue();
             ++count;
-            numbers.add(number.(double)Value());
+            numbers.add(number.doubleValue());
         }
         Collections.sort(numbers);
         double mean = sum / (double)count;
-        double median = count % 2 != 0 ? Doublenumbers.get(count / 2) : (Doublenumbers.get((count - 1) / 2) + Doublenumbers.get(count / 2)) / 2.0;
+        double median = count % 2 != 0 ? (Double)numbers.get(count / 2) : ((Double)numbers.get((count - 1) / 2) + (Double)numbers.get(count / 2)) / 2.0;
         double variance = Expander.getVariance(data);
         return 3.0 * (mean - median) / variance;
     }
@@ -93,7 +93,7 @@ public final class Expander {
     public static double getAverage(Collection<? extends Number> data) {
         double sum = 0.0;
         for (Number number : data) {
-            sum += number.(double)Value();
+            sum += number.doubleValue();
         }
         return sum / (double)data.size();
     }
@@ -102,7 +102,7 @@ public final class Expander {
         double sum = 0.0;
         int count = 0;
         for (Number number : data) {
-            sum += number.(double)Value();
+            sum += number.doubleValue();
             ++count;
         }
         if ((double)count < 3.0) {
@@ -114,8 +114,8 @@ public final class Expander {
         double variance = 0.0;
         double varianceSquared = 0.0;
         for (Number number : data) {
-            variance += Math.pow(average - number.(double)Value(), 2.0);
-            varianceSquared += Math.pow(average - number.(double)Value(), 4.0);
+            variance += Math.pow(average - number.doubleValue(), 2.0);
+            varianceSquared += Math.pow(average - number.doubleValue(), 4.0);
         }
         return efficiencyFirst * (varianceSquared / Math.pow(variance / sum, 2.0)) - efficiencySecond;
     }
@@ -147,7 +147,7 @@ public final class Expander {
     public static double getModeDouble(Double[] data) {
         double maxValue = -1.0;
         int maxCount = 0;
-        for (i < data.length; ++i) {
+        for (int i = 0; i < data.length; ++i) {
             double currentValue = data[i];
             int currentCount = 1;
             for (int j = i + 1; j < data.length; ++j) {
@@ -173,11 +173,11 @@ public final class Expander {
     }
 
     public static boolean isExponentiallySmall(Number number) {
-        return number.(double)Value() < 1.0 && (Double.toString(number.(double)Value()).contains("E") || number.(double)Value() == 0.0);
+        return number.doubleValue() < 1.0 && (Double.toString(number.doubleValue()).contains("E") || number.doubleValue() == 0.0);
     }
 
     public static boolean isExponentiallyLarge(Number number) {
-        return number.(double)Value() > 10000.0 && Double.toString(number.(double)Value()).contains("E");
+        return number.doubleValue() > 10000.0 && Double.toString(number.doubleValue()).contains("E");
     }
 
     public static long getGcd(long current, long previous) {
@@ -210,9 +210,9 @@ public final class Expander {
     }
 
     public static float gcdRational(List<Float> numbers) {
-        float result = numbers.get(0).(float)Value();
-        for (i < numbers.size(); ++i) {
-            result = Expander.gcdRational(numbers.get(i).(float)Value(), result);
+        float result = numbers.get(0).floatValue();
+        for (int i = 0; i < numbers.size(); ++i) {
+            result = Expander.gcdRational(numbers.get(i).floatValue(), result);
             if (!((double)result < 1.0E-7)) continue;
             return 0.0f;
         }
@@ -248,7 +248,7 @@ public final class Expander {
     public static Pair<List<Double>, List<Double>> getOutliers(Collection<? extends Number> collection) {
         ArrayList<Double> values = new ArrayList<Double>();
         for (Number number : collection) {
-            values.add(number.(double)Value());
+            values.add(number.doubleValue());
         }
         double q1 = Expander.getMedian(values.subList(0, values.size() / 2));
         double q3 = Expander.getMedian(values.subList(values.size() / 2, values.size()));
@@ -271,7 +271,7 @@ public final class Expander {
         ArrayList<Long> (long)List = new ArrayList<Long>();
         for (Integer i : integerList) {
             if (i != null) {
-                (long)List.add(i.(long)Value());
+                (long)List.add(i.longValue());
                 continue;
             }
             (long)List.add(null);

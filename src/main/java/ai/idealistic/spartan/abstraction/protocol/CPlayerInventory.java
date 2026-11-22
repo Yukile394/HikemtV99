@@ -110,7 +110,7 @@ implements PlayerInventory {
             }
             return hashMap;
         }
-        return new HashMap<Integer, ItemStack>0;
+        return new HashMap<Integer, ItemStack>(0);
     }
 
     @NotNull
@@ -125,7 +125,7 @@ implements PlayerInventory {
             }
             return hashMap;
         }
-        return new HashMap<Integer, ItemStack>0;
+        return new HashMap<Integer, ItemStack>(0);
     }
 
     @NotNull
@@ -140,7 +140,7 @@ implements PlayerInventory {
             }
             return hashMap;
         }
-        return new HashMap<Integer, ItemStack>0;
+        return new HashMap<Integer, ItemStack>(0);
     }
 
     public @Nullable ItemStack @NotNull [] getContents() {

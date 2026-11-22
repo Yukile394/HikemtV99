@@ -28,7 +28,7 @@ Model {
     private List<Table> table = new LinkedList<Table>();
 
     public Table(int tableSize, int stackSize) {
-        for (i < tableSize; ++i) {
+        for (int i = 0; i < tableSize; ++i) {
             this.table.add(new Table(stackSize));
         }
     }
@@ -40,7 +40,7 @@ Model {
             throw new Exception("The number of tables in the input data should be equal to what is specified in the model");
         }
         Class2 result = new Class2();
-        for (i < this.table.size(); ++i) {
+        for (int i = 0; i < this.table.size(); ++i) {
             Table dataML = this.table.get(i);
             Pitch objectML = o.get(i);
             List<Double> p = dataML.checkData(objectML);
@@ -55,7 +55,7 @@ Model {
         if (o.size() != this.table.size()) {
             throw new Exception("The number of tables in the input data should be equal to what is specified in the model");
         }
-        for (i < this.table.size(); ++i) {
+        for (int i = 0; i < this.table.size(); ++i) {
             Table dataML = this.table.get(i);
             Pitch objectML = o.get(i);
             dataML.pushData(objectML, isMustBeBlocked);

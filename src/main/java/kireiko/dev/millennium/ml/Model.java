@@ -28,7 +28,7 @@ public final class Model {
     public static final List<Interface> MODEL_LIST = Arrays.asList(new M1Module(), new M2Module(), new M3Module(), new M4Module(), new M5Module(), new MHuge1(), new MHuge2());
 
     public static void run() {
-        for (i < MODEL_LIST.size(); ++i) {
+        for (int i = 0; i < MODEL_LIST.size(); ++i) {
             Interface moduleML = MODEL_LIST.get(i);
             FactoryML.loadFromResources(i, MODEL_LIST.get(i).getName() + ".dat", 2, moduleML.getParameterBuffer(), ModelVer.VERSION_4_5);
         }

@@ -46,19 +46,19 @@ public class PlayerUtils {
     private static final Material stone_spade = Spade.get("stone_spade");
     private static final Material wood_spade = Spade.get("wood_spade");
     public static final double optimizationY = MultiVersion.isOrGreater(MultiVersion.MCVersion.V1_9) ? 0.005 : 0.003;
-    public static final double airDrag = Distance.(float)Double(0.98);
-    public static final double waterDrag = Distance.(float)Double(0.8);
+    public static final double airDrag = Distance.floatDouble(0.98);
+    public static final double waterDrag = Distance.floatDouble(0.8);
     public static final double lavaDrag = 0.5;
-    public static final double jumpAcceleration = Distance.(float)Double(0.42);
+    public static final double jumpAcceleration = Distance.floatDouble(0.42);
     public static final double airAcceleration = 0.08;
-    public static final double airAccelerationUnloaded = Distance.(float)Double(0.098);
+    public static final double airAccelerationUnloaded = Distance.floatDouble(0.098);
     public static final double slowFallAcceleration = 0.01;
     public static final double liquidAcceleration = 0.02;
     public static final double chunk = 16.0;
     public static final double climbingUpDefault = 0.12 * airDrag;
-    public static final double climbingDownDefault = Distance.(float)Double(0.15);
-    public static final double honeyBlockDownDefault = Distance.(float)Double(0.13) * airDrag;
-    public static final double webBlockDownDefault = Distance.(float)Double(0.64) * airDrag;
+    public static final double climbingDownDefault = Distance.floatDouble(0.15);
+    public static final double honeyBlockDownDefault = Distance.floatDouble(0.13) * airDrag;
+    public static final double webBlockDownDefault = Distance.floatDouble(0.64) * airDrag;
     public static final double maxJumpingMotionDifference;
     public static final int playerInventorySlots = 46;
     public static final int height;
@@ -152,7 +152,7 @@ public class PlayerUtils {
         if (levitation) {
             handledPotionEffects.put(PotionEffectType.LEVITATION, 500L);
         }
-        for (jumpEffect < 256; ++jumpEffect) {
+        for (int jumpEffect = 0; jumpEffect < 256; ++jumpEffect) {
             ArrayList<Double> jumps = new ArrayList<Double>();
             double jump = jumpAcceleration.1;
             while (jump > 0.0) {

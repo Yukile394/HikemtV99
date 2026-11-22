@@ -20,13 +20,13 @@ implements Serializable {
     private List<OtherStatisticTable> statisticTable = new ArrayList<OtherStatisticTable>();
 
     public Table(int stackSize) {
-        for (i < 4; ++i) {
+        for (int i = 0; i < 4; ++i) {
             this.statisticTable.add(new OtherStatisticTable(SCALE[i], stackSize));
         }
     }
 
     public List<Double> checkData(Pitch data) {
-        ArrayList<Double> l = new ArrayList<Double>4;
+        ArrayList<Double> l = new ArrayList<Double>(4);
         for (OtherStatisticTable ml : this.statisticTable) {
             l.add(ml.checkData(data));
         }

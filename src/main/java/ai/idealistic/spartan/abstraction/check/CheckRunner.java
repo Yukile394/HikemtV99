@@ -46,7 +46,7 @@ extends CheckProcess {
     private final Collection<CheckCancellation> disableCauses;
     private final Collection<CheckCancellation> silentCauses;
     private boolean cancelled;
-    private final Map<String, CheckDetection> detections = new ConcurrentHashMap<String, CheckDetection>2;
+    private final Map<String, CheckDetection> detections = new ConcurrentHashMap<String, CheckDetection>(2);
 
     public CheckRunner(CheckEnums.HackType hackType, PlayerProtocol protocol) {
         super(hackType, protocol);
