@@ -261,15 +261,15 @@ public final class MathCollection {
     }
 
     public static List<Long> convertToLongList(List<Integer> integerList) {
-        ArrayList<Long> (long)List = new ArrayList<Long>();
+        ArrayList<Long> longList = new ArrayList<Long>();
         for (Integer i : integerList) {
             if (i != null) {
-                (long)List.add(i.longValue());
+                longList.add(i.longValue());
                 continue;
             }
-            (long)List.add(null);
+            longList.add(null);
         }
-        return (long)List;
+        return longList;
     }
 
     public static double getKireikoGeneric(Collection<? extends Number> collection) {
@@ -280,7 +280,7 @@ public final class MathCollection {
         if (data.isEmpty()) {
             throw new IllegalArgumentException("Collection cannot be empty");
         }
-        List sortedValues = data.stream().map(Number::(double)Value).sorted().collect(Collectors.toList());
+        List sortedValues = data.stream().map(Number::doubleValue).sorted().collect(Collectors.toList());
         int index = (int)Math.ceil(percentile / 100.0.size()) - 1;
         if (index < 0) {
             index = 0;
@@ -322,7 +322,7 @@ public final class MathCollection {
     }
 
     public static double getShannonEntropy(Collection<? extends Number> data) {
-        Map<Double, Long> freqMap = data.stream().collect(Collectors.groupingBy(Number::(double)Value, Collectors.counting()));
+        Map<Double, Long> freqMap = data.stream().collect(Collectors.groupingBy(Number::doubleValue, Collectors.counting()));
         double total = data.size();
         return -freqMap.values().stream().mapToDouble(count -> (double)count.longValue() / total * (Math.log((double)count.longValue() / total) / Math.log(2.0))).sum();
     }
@@ -378,13 +378,13 @@ public final class MathCollection {
     }
 
     public static double getQuantile(Collection<? extends Number> data, double quantile) {
-        List sorted = data.stream().map(Number::(double)Value).sorted().collect(Collectors.toList());
+        List sorted = data.stream().map(Number::doubleValue).sorted().collect(Collectors.toList());
         int index = (int)Math.ceil(quantile * (double)sorted.size()) - 1;
         return (Double)sorted.get(Math.max(0, Math.min(index, sorted.size() - 1)));
     }
 
     public static double getGiniIndex(Collection<? extends Number> data) {
-        List sorted = data.stream().map(Number::(double)Value).sorted().collect(Collectors.toList());
+        List sorted = data.stream().map(Number::doubleValue).sorted().collect(Collectors.toList());
         int n = sorted.size();
         double sum = 0.0;
         for (Double aDouble : sorted) {
@@ -536,7 +536,7 @@ public final class MathCollection {
     }
 
     public static double getWinsorizedMean(List<? extends Number> data, double trimFraction) {
-        List sorted = data.stream().map(Number::(double)Value).sorted().collect(Collectors.toList());
+        List sorted = data.stream().map(Number::doubleValue).sorted().collect(Collectors.toList());
         int n = sorted.size();
         int trimCount = (int)((double)n * trimFraction);
         double lowerBound = (Double)sorted.get(trimCount - 1);
@@ -555,11 +555,11 @@ public final class MathCollection {
             }
             winsorized.add(value);
         }
-        return winsorized.stream().mapToDouble(Double::(double)Value).average().orElse(0.0);
+        return winsorized.stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
     }
 
     public static double kolmogorovSmirnovTest(List<? extends Number> data, Function<Double, Double> cdfFunction) {
-        List sorted = data.stream().map(Number::(double)Value).sorted().collect(Collectors.toList());
+        List sorted = data.stream().map(Number::doubleValue).sorted().collect(Collectors.toList());
         int n = sorted.size();
         double dStatistic = 0.0;
         for (int i = 0; i < n; ++i) {
@@ -638,7 +638,7 @@ public final class MathCollection {
     }
 
     public static List<Integer> cusumDetection(List<? extends Number> data, double threshold, double drift) {
-        List series = data.stream().map(Number::(double)Value).collect(Collectors.toList());
+        List series = data.stream().map(Number::doubleValue).collect(Collectors.toList());
         ArrayList<Integer> changePoints = new ArrayList<Integer>();
         double posSum = 0.0;
         double negSum = 0.0;
@@ -682,7 +682,7 @@ public final class MathCollection {
     }
 
     public static List<Double> getRanks(List<? extends Number> data) {
-        List sorted = data.stream().map(Number::(double)Value).sorted().collect(Collectors.toList());
+        List sorted = data.stream().map(Number::doubleValue).sorted().collect(Collectors.toList());
         return data.stream().map(v -> sorted.indexOf(v.doubleValue()) + 1).collect(Collectors.toList());
     }
 
@@ -695,7 +695,7 @@ public final class MathCollection {
     }
 
     public static double getIQR(Collection<? extends Number> data) {
-        List sorted = data.stream().map(Number::(double)Value).sorted().collect(Collectors.toList());
+        List sorted = data.stream().map(Number::doubleValue).sorted().collect(Collectors.toList());
         return MathCollection.calculatePercentile(sorted, 75.0) - MathCollection.calculatePercentile(sorted, 25.0);
     }
 }
